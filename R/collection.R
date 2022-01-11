@@ -1,6 +1,6 @@
-#' GET collection features
+#' Get collection features
 #'
-#' GET collection features given collection_id and optional query
+#' Get collection features given collection_id and optional query
 #' parameters (see API specs [here](https://github.com/CrunchyData/pg_featureserv/blob/master/API.md#feature-collections)).
 #'
 #' @inheritParams params

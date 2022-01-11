@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-pgfsr is an R client to [pg_featureserv](https://github.com/CrunchyData/pg_featureserv), a RESTful web service that provides access to spatial data stored in PostGIS tables, as well as spatial processing capability based on PostGIS spatial functions.
+pgfsr is an R client for [pg_featureserv](https://github.com/CrunchyData/pg_featureserv), a RESTful web service that provides access to spatial data stored in PostGIS tables, as well as spatial processing capability based on PostGIS spatial functions.
 
 ## Installation
 

@@ -4,9 +4,9 @@
 \name{pgfsr-package}
 \alias{pgfsr}
 \alias{pgfsr-package}
-\title{pgfsr: What the Package Does (One Line, Title Case)}
+\title{pgfsr: Client for pg_featureserv RESTful web service}
 \description{
-What the package does (one paragraph).
+Client for pg_featureserv, a RESTful geospatial feature server for PostGIS.
 }
 \author{
 \strong{Maintainer}: Seb Dalgarno \email{dalgarno@unbc.ca} (\href{https://orcid.org/0000-0002-3658-4517}{ORCID})

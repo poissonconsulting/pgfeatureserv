@@ -6,8 +6,8 @@
 \usage{
 pgf_collection_features(
   collection_id,
-  base_url = getOption("pgfsr_base_url"),
-  path = getOption("pgfsr_path"),
+  base_url,
+  path,
   filter = NULL,
   limit = 10000,
   offset = 0,

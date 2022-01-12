@@ -12,8 +12,8 @@
 #' path <- "fwa"
 #' pgf_collections(base_url = base_url, path = path)
 #' }
-pgf_collections <- function(base_url = getOption("pgfsr_base_url"),
-                            path = getOption("pgfsr_path"),
+pgf_collections <- function(base_url,
+                            path,
                             user = gh_user(),
                             verbose = FALSE) {
   chk_string(base_url)

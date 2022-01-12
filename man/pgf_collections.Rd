@@ -4,12 +4,7 @@
 \alias{pgf_collections}
 \title{Get collections}
 \usage{
-pgf_collections(
-  base_url = getOption("pgfsr_base_url"),
-  path = getOption("pgfsr_path"),
-  user = gh_user(),
-  verbose = FALSE
-)
+pgf_collections(base_url, path, user = gh_user(), verbose = FALSE)
 }
 \arguments{
 \item{base_url}{A character string of the base URL.}

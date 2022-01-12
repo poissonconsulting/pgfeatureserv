@@ -12,8 +12,8 @@
 #' pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 #' }
 pgf_collection_features <- function(collection_id,
-                                    base_url = getOption("pgfsr_base_url"),
-                                    path = getOption("pgfsr_path"),
+                                    base_url,
+                                    path,
                                     filter = NULL,
                                     limit = 10000,
                                     offset = 0,

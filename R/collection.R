@@ -5,12 +5,13 @@
 #'
 #' @inheritParams params
 #' @return A sf object.
+#' @family collections
 #' @export
 #' @examples
 #' \dontrun{
-#' pgfs_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
+#' pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 #' }
-pgfs_collection_features <- function(collection_id,
+pgf_collection_features <- function(collection_id,
                      filter = NULL,
                      limit = 10000,
                      offset = 0,

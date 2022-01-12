@@ -1,7 +1,7 @@
 test_that("collection works with default values ", {
   collection_id <- "whse_basemapping.fwa_named_streams"
-  x <- pgfs_collection_features(collection_id, limit = 10)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, limit = 10)
+  x <- x$table
   expect_s3_class(x, "sf")
   expect_s3_class(x, "tbl_df")
   expect_s3_class(x$geometry, "sfc_MULTILINESTRING")
@@ -15,8 +15,8 @@ test_that("collection filter works", {
 
   filter <- list(gnis_name_1 = "Trout Lake")
 
-  x <- pgfs_collection_features(collection_id, filter = filter)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, filter = filter)
+  x <- x$table
   expect_s3_class(x, "sf")
   expect_s3_class(x, "tbl_df")
   expect_true(all(x$gnis_name_1 == "Trout Lake"))
@@ -40,10 +40,10 @@ test_that("collection sortby works", {
 
   sortby <- c("blue_line_key")
 
-  x <- pgfs_collection_features(collection_id, limit = 1, sortby = sortby)
-  x <- x$features
-  x2 <- pgfs_collection_features(collection_id, limit = 1)
-  x2 <- x2$features
+  x <- pgf_collection_features(collection_id, limit = 1, sortby = sortby)
+  x <- x$table
+  x2 <- pgf_collection_features(collection_id, limit = 1)
+  x2 <- x2$table
   expect_true(x$blue_line_key < x2$blue_line_key)
 })
 
@@ -53,10 +53,10 @@ test_that("collection sortby descending works", {
   sortby <- c("+blue_line_key")
   sortby_desc <- c("-blue_line_key")
 
-  x <- pgfs_collection_features(collection_id, limit = 1, sortby = sortby_desc)
-  x <- x$features
-  x2 <- pgfs_collection_features(collection_id, limit = 1, sortby = sortby)
-  x2 <- x2$features
+  x <- pgf_collection_features(collection_id, limit = 1, sortby = sortby_desc)
+  x <- x$table
+  x2 <- pgf_collection_features(collection_id, limit = 1, sortby = sortby)
+  x2 <- x2$table
   expect_true(x$blue_line_key > x2$blue_line_key)
 })
 
@@ -66,8 +66,8 @@ test_that("collection bounding box gets everything intersecting bounding box", {
 
   bbox <- c(-117.46, 50.6, -117.4601, 50.6001)
 
-  x <- pgfs_collection_features(collection_id, bbox = bbox)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, bbox = bbox)
+  x <- x$table
   expect_identical(x$gnis_name_1, "Trout Lake")
   expect_identical(
     sort(colnames(x)),
@@ -86,8 +86,8 @@ test_that("collection properties works", {
 
   properties <- c("blue_line_key", "gnis_name")
 
-  x <- pgfs_collection_features(collection_id, limit = 1, properties = properties)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, limit = 1, properties = properties)
+  x <- x$table
   expect_identical(colnames(x), c(properties, "geometry"))
 })
 
@@ -97,8 +97,8 @@ test_that("collection precision works", {
 
   precision <- 1
 
-  x <- pgfs_collection_features(collection_id, precision = precision, limit = 1)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, precision = precision, limit = 1)
+  x <- x$table
 
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 1L)
@@ -112,8 +112,25 @@ test_that("collection transform works", {
 
   filter <- list(gnis_name_1 = "Kootenay Lake")
 
-  x <- pgfs_collection_features(collection_id, filter = filter, transform = c("ST_Simplify", 50000))
-  x <- x$features
+  x <- pgf_collection_features(collection_id, filter = filter, transform = c("ST_Simplify", 50000))
+  x <- x$table
+
+  expect_s3_class(x, "sf")
+  expect_identical(nrow(x), 1L)
+  expect_identical(nrow(sf::st_coordinates(sf::st_cast(x$geometry, "POINT"))), 4L)
+})
+
+test_that("collection transform to get bbox works", {
+  collection_id <- "whse_basemapping.fwa_lakes_poly"
+
+  transform <- "collect|envelope"
+  properties <- "geometry"
+
+  skip("collect not recognised - see https://github.com/poissonconsulting/fwapgr/issues/45")
+  x <- pgf_collection_features(collection_id,
+                                transform = transform,
+                                properties = properties)
+  x <- x$table
 
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 1L)
@@ -127,9 +144,9 @@ test_that("collection groupby works", {
 
   groupby <- "gnis_name"
 
-  x <- pgfs_collection_features(collection_id, limit = 10,
+  x <- pgf_collection_features(collection_id, limit = 10,
                                 groupby = groupby)
-  x <- x$features
+  x <- x$table
 
   expect_s3_class(x, "sf")
   # without groupby there are duplicate gnis_names
@@ -146,49 +163,49 @@ test_that("collection bounding box and filter work together", {
   bbox <- c(-117.46, 50.6, -117.4601, 50.6001)
   filter <- list(gnis_name_1 = "kootenay lake")
 
-  x <- pgfs_collection_features(collection_id, filter = filter, bbox = bbox)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, filter = filter, bbox = bbox)
+  x <- x$table
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 0L)
   # not sure why this is happening - is it an issue?
-  skip("pgfs_collection_features all columns missing except geometry when no rows")
+  skip("pgf_collection_features all columns missing except geometry when no rows")
   expect_identical(
     colnames(x),
     c("geometry"))
 })
 
 test_that("informative error invalid collection", {
-  expect_chk_error(pgfs_collection_features("not_a_collection"),
+  expect_chk_error(pgf_collection_features("not_a_collection"),
                    "API request failed \\[404\\]: Collection not found: not_a_collection")
 })
 
 test_that("collection informative error invalid transform", {
   collection_id <- "whse_basemapping.fwa_lakes_poly"
 
-  expect_chk_error(pgfs_collection_features(collection_id,
+  expect_chk_error(pgf_collection_features(collection_id,
                                         transform = "not_a_transform"),
                    "API request failed \\[400\\]: Invalid value for parameter transform: not_a_transform")
 })
 
 test_that("collection informative error invalid bbox", {
   collection_id <- "whse_basemapping.fwa_lakes_poly"
-  expect_chk_error(pgfs_collection_features(collection_id, bbox = 1),
+  expect_chk_error(pgf_collection_features(collection_id, bbox = 1),
                    "API request failed \\[400\\]: Invalid value for parameter bbox: 1")
 })
 
 test_that("collection informative error invalid bbox", {
   collection_id <- "whse_basemapping.fwa_lakes_poly"
-  expect_chk_error(pgfs_collection_features(collection_id, filter = c(1)))
+  expect_chk_error(pgf_collection_features(collection_id, filter = c(1)))
 })
 
 test_that("collection offset works", {
   collection_id <- "whse_basemapping.fwa_named_streams"
 
-  x <- pgfs_collection_features(collection_id, limit = 2)
-  x <- x$features
+  x <- pgf_collection_features(collection_id, limit = 2)
+  x <- x$table
   expect_identical(x$fwa_stream_networks_label_id, c(1, 2))
-  x2 <- pgfs_collection_features(collection_id, offset = 1, limit = 1)
-  x2 <- x2$features
+  x2 <- pgf_collection_features(collection_id, offset = 1, limit = 1)
+  x2 <- x2$table
   expect_identical(x2$fwa_stream_networks_label_id,
                    x$fwa_stream_networks_label_id[2])
 })
@@ -197,12 +214,12 @@ test_that("collection offset works with higher numbers", {
   collection_id <- "whse_basemapping.fwa_named_streams"
 
   sortby <- "fwa_stream_networks_label_id"
-  x <- pgfs_collection_features(collection_id, offset = 997,
+  x <- pgf_collection_features(collection_id, offset = 997,
                                 limit = 2, sortby = sortby)
-  x <- x$features
-  x2 <- pgfs_collection_features(collection_id, offset = 998,
+  x <- x$table
+  x2 <- pgf_collection_features(collection_id, offset = 998,
                                  limit = 1, sortby = sortby)
-  x2 <- x2$features
+  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
   expect_true(identical(x2$fwa_stream_networks_label_id, x$fwa_stream_networks_label_id[2]))
@@ -212,12 +229,12 @@ test_that("collection offset works with really big number", {
   collection_id <- "whse_basemapping.fwa_named_streams"
 
   sortby <- "fwa_stream_networks_label_id"
-  x <- pgfs_collection_features(collection_id, offset = 9999,
+  x <- pgf_collection_features(collection_id, offset = 9999,
                                 limit = 2, sortby = sortby)
-  x <- x$features
-  x2 <- pgfs_collection_features(collection_id, offset = 10000,
+  x <- x$table
+  x2 <- pgf_collection_features(collection_id, offset = 10000,
                                  limit = 1, sortby = sortby)
-  x2 <- x2$features
+  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
 
@@ -229,12 +246,12 @@ test_that("collection offset works with offset more than limit", {
   collection_id <- "whse_basemapping.fwa_named_streams"
 
   sortby <- "fwa_stream_networks_label_id"
-  x <- pgfs_collection_features(collection_id, offset = 10000,
+  x <- pgf_collection_features(collection_id, offset = 10000,
                                 limit = 2, sortby = sortby)
-  x <- x$features
-  x2 <- pgfs_collection_features(collection_id, offset = 10001,
+  x <- x$table
+  x2 <- pgf_collection_features(collection_id, offset = 10001,
                                  limit = 1, sortby = sortby)
-  x2 <- x2$features
+  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
 
@@ -244,10 +261,10 @@ test_that("collection offset works with offset more than limit", {
 
 test_that("collection offset works at 99,999", {
   collection_id <- "whse_basemapping.fwa_named_streams"
-  expect_silent(pgfs_collection_features(collection_id, offset = 99999, limit = 1))
+  expect_silent(pgf_collection_features(collection_id, offset = 99999, limit = 1))
 })
 
 test_that("collection offset works at 100,000", {
   collection_id <- "whse_basemapping.fwa_named_streams"
-  expect_silent(pgfs_collection_features(collection_id, offset = 100000, limit = 1))
+  expect_silent(pgf_collection_features(collection_id, offset = 100000, limit = 1))
 })

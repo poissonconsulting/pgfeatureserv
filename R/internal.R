@@ -35,6 +35,24 @@ content_features <- function(x) {
   x
 }
 
+content_tibble <- function(x) {
+  x <- jsonlite::fromJSON(x, flatten = TRUE)
+  x <- x$collections
+  tibble::as_tibble(x)
+}
+
+response_table <- function(x, geojson){
+  cont <- response_content(x)
+  if(geojson){
+    chk_response_geojson(x)
+    y <- content_features(cont)
+  } else {
+    chk_response_json(x)
+    y <- content_tibble(cont)
+  }
+  y
+}
+
 content_parsed <- function(x) {
   # flatten = FALSE is slightly faster
   jsonlite::fromJSON(x, flatten = FALSE)

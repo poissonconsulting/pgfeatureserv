@@ -4,7 +4,9 @@ test_that("get_request works", {
   x <- get_request(url, user = "test", verbose = FALSE)
   expect_type(x, "list")
   expect_s3_class(x, "pgfs_request")
-  expect_identical(names(x), c("features", "response"))
+  expect_identical(names(x), c("table", "response"))
 })
+
+
 
 

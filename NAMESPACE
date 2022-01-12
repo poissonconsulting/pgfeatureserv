@@ -3,6 +3,8 @@
 export(pgf_collection_features)
 export(pgf_collection_properties)
 export(pgf_collections)
+export(pgf_function)
+export(pgf_functions)
 import(chk)
 import(glue)
 import(httr)

@@ -7,6 +7,7 @@
 #' the server your are querying to contact you in case of misuse.
 #' @param verbose A flag indicating whether to provide verbose GET response.
 #' @param collection_id A character string of the collection id.
+#' @param function_id A character string of the function id.
 #' @param limit A positive whole number that limits the number of
 #' features in the response.
 #' @param offset A positive whole number that starts the response at an offset.

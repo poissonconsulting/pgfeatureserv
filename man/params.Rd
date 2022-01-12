@@ -19,6 +19,8 @@ the server your are querying to contact you in case of misuse.}
 
 \item{collection_id}{A character string of the collection id.}
 
+\item{function_id}{A character string of the function id.}
+
 \item{limit}{A positive whole number that limits the number of
 features in the response.}
 

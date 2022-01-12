@@ -1,7 +1,6 @@
 ### this function is currently designed for json output and not html
 # (e.g. if url ends with /items.html vs /items.json)
 get_request <- function(url, user, verbose = FALSE) {
-
   headers <- add_headers(
     "User-Agent" = user
   )
@@ -29,6 +28,4 @@ get_request <- function(url, user, verbose = FALSE) {
   # # cont <- response_content(resp)
   # # parsed <- content_parsed(cont)
   #
-
 }
-

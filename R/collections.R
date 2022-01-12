@@ -30,10 +30,10 @@ pgf_collections <- function(base_url,
     url = url, user = user, verbose = verbose
   )
 
-  if(response)
+  if (response) {
     return(resp)
+  }
 
   x <- resp$response
   content_json(x, "collections")
 }
-

@@ -17,9 +17,10 @@
 #'   downstream_route_measure = 0
 #' )
 #' pgf_function(function_id,
-#'                  base_url = base_url,
-#'                  path = path,
-#'                  parameters = parameters)
+#'   base_url = base_url,
+#'   path = path,
+#'   parameters = parameters
+#' )
 #' }
 #'
 pgf_function <- function(function_id,
@@ -35,9 +36,7 @@ pgf_function <- function(function_id,
                          transform = NULL,
                          user = gh_user(),
                          verbose = FALSE,
-                         response = FALSE
-                         ) {
-
+                         response = FALSE) {
   chk_string(function_id)
   chkor_vld(vld_null(parameters), vld_named(parameters) & vld_vector(parameters))
   chk_whole_number(limit)
@@ -78,8 +77,9 @@ pgf_function <- function(function_id,
     url = url, user = user, verbose = verbose
   )
 
-  if(response)
+  if (response) {
     return(resp)
+  }
 
   x <- resp$response
   content_geojson(x)

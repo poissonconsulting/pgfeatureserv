@@ -11,7 +11,8 @@
 #' base_url <- "https://features.hillcrestgeo.ca/"
 #' path <- "fwa"
 #' pgf_collection_properties("whse_basemapping.fwa_named_streams",
-#'  base_url = base_url, path = path)
+#'   base_url = base_url, path = path
+#' )
 #' }
 pgf_collection_properties <- function(collection_id,
                                       base_url,
@@ -19,7 +20,6 @@ pgf_collection_properties <- function(collection_id,
                                       user = gh_user(),
                                       verbose = FALSE,
                                       response = FALSE) {
-
   chk_string(collection_id)
   chk_string(base_url)
   chk_string(path)
@@ -34,8 +34,9 @@ pgf_collection_properties <- function(collection_id,
     url = url, user = user, verbose = verbose
   )
 
-  if(response)
+  if (response) {
     return(resp)
+  }
 
   x <- resp$response
   content_json(x, table = "properties")

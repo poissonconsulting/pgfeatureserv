@@ -11,13 +11,14 @@
 #' base_url <- "https://features.hillcrestgeo.ca/"
 #' path <- "fwa"
 #' pgf_functions(
-#'  base_url = base_url, path = path)
+#'   base_url = base_url, path = path
+#' )
 #' }
 pgf_functions <- function(base_url,
-                         path,
-                         user = gh_user(),
-                         verbose = FALSE,
-                         response = FALSE) {
+                          path,
+                          user = gh_user(),
+                          verbose = FALSE,
+                          response = FALSE) {
   chk_string(base_url)
   chk_string(path)
   chk_string(user)
@@ -31,8 +32,9 @@ pgf_functions <- function(base_url,
     url = url, user = user, verbose = verbose
   )
 
-  if(response)
+  if (response) {
     return(resp)
+  }
 
   x <- resp$response
   content_json(x, "functions")

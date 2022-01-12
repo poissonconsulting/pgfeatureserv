@@ -22,4 +22,3 @@ chk_response_json <- function(x) {
   msg <- status_msg(x)
   abort_chk(glue("API did not return JSON: {msg}"))
 }
-

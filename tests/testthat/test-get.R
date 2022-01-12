@@ -6,7 +6,3 @@ test_that("get_request works", {
   expect_s3_class(x, "pgfs_request")
   expect_identical(names(x), c("response"))
 })
-
-
-
-

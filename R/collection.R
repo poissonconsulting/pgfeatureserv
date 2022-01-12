@@ -26,7 +26,6 @@ pgf_collection_features <- function(collection_id,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
-
   chk_string(collection_id)
   chkor_vld(vld_null(filter), vld_named(filter) & vld_vector(filter))
   chk_whole_number(limit)
@@ -70,8 +69,9 @@ pgf_collection_features <- function(collection_id,
     url = url, user = user, verbose = verbose
   )
 
-  if(response)
+  if (response) {
     return(resp)
+  }
 
   x <- resp$response
   content_geojson(x)

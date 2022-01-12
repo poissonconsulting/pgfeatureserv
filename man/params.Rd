@@ -27,14 +27,16 @@ features in the response.}
 \item{offset}{A positive whole number that starts the response at an offset.}
 
 \item{sortby}{A string that sorts the response items by a property.
-Default is ascending but property name can be prepended with '-' to indicate descending.}
+Default is ascending but property name can be prepended with
+'-' to indicate descending.}
 
 \item{bbox}{A vector of four numbers indicating bounding box in lon/lat
 (e.g. \code{c(minLon, minLat, maxLon, maxLat)}) that features in response
 must intersect.}
 
-\item{filter}{A named vector or list of the filter(s) to apply, where the list
-names correspond to column names and the list values correspond to the desired
+\item{filter}{A named vector or list of the filter(s) to apply,
+where the list names correspond to column names and the
+list values correspond to the desired
 value, e.g. \code{list(gnis_name = "Sangan River")}.}
 
 \item{properties}{A vector of strings of the column names to include.

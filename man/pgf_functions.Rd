@@ -35,7 +35,8 @@ Get information on available functions.
 base_url <- "https://features.hillcrestgeo.ca/"
 path <- "fwa"
 pgf_functions(
- base_url = base_url, path = path)
+  base_url = base_url, path = path
+)
 }
 }
 \seealso{

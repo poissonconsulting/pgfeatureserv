@@ -38,7 +38,8 @@ pgf_function <- function(function_id,
                          verbose = FALSE,
                          response = FALSE) {
   chk_string(function_id)
-  chkor_vld(vld_null(parameters), vld_named(parameters) & vld_vector(parameters))
+  chkor_vld(vld_null(parameters),
+            vld_named(parameters) & vld_vector(parameters))
   chk_whole_number(limit)
   chk_gt(limit)
   chk_lte(limit, 10000L)
@@ -46,7 +47,8 @@ pgf_function <- function(function_id,
   chk_gte(offset)
   chk_null_or(bbox, vld = vld_numeric)
   chk_null_or(properties, vld = vld_character)
-  chkor_vld(vld_null(precision), vld_whole_number(precision) & vld_gt(precision, 0))
+  chkor_vld(vld_null(precision),
+            vld_whole_number(precision) & vld_gt(precision, 0))
   chk_null_or(transform, vld = vld_character)
   chk_flag(verbose)
   chk_flag(response)

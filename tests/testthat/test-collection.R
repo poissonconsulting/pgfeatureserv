@@ -52,15 +52,16 @@ test_that("collection filter works", {
     sort(colnames(x)),
     c(
       "area_ha", "blue_line_key", "feature_code", "fwa_watershed_code",
-      "geometry", "gnis_id_1", "gnis_id_2", "gnis_id_3", "gnis_name_1", "gnis_name_2",
+      "geometry", "gnis_id_1", "gnis_id_2",
+      "gnis_id_3", "gnis_name_1", "gnis_name_2",
       "gnis_name_3", "left_right_tributary", "local_watershed_code",
-      "localcode_ltree", "waterbody_key", "waterbody_key_50k", "waterbody_key_group_code_50k",
+      "localcode_ltree", "waterbody_key", "waterbody_key_50k",
+      "waterbody_key_group_code_50k",
       "waterbody_poly_id", "waterbody_type", "watershed_code_50k",
-      "watershed_group_code", "watershed_group_code_50k", "watershed_group_id",
-      "watershed_key", "wscode_ltree"
+      "watershed_group_code", "watershed_group_code_50k",
+      "watershed_group_id", "watershed_key", "wscode_ltree"
     )
   )
-
   # expect_snapshot_data(collection, "trout_lake")
 })
 

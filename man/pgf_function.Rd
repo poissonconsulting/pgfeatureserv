@@ -37,7 +37,8 @@ features in the response.}
 \item{offset}{A positive whole number that starts the response at an offset.}
 
 \item{sortby}{A string that sorts the response items by a property.
-Default is ascending but property name can be prepended with '-' to indicate descending.}
+Default is ascending but property name can be prepended with
+'-' to indicate descending.}
 
 \item{bbox}{A vector of four numbers indicating bounding box in lon/lat
 (e.g. \code{c(minLon, minLat, maxLon, maxLat)}) that features in response
@@ -77,9 +78,10 @@ parameters <- list(
   downstream_route_measure = 0
 )
 pgf_function(function_id,
-                 base_url = base_url,
-                 path = path,
-                 parameters = parameters)
+  base_url = base_url,
+  path = path,
+  parameters = parameters
+)
 }
 
 }

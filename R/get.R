@@ -20,12 +20,4 @@ get_request <- function(url, user, verbose = FALSE) {
     ),
     class = "pgfs_request"
   )
-
-  # chk_response_status(resp)
-  # table <- response_table(resp, table = table, geojson = geojson,)
-  #
-  # ## don't need this until paginated requests possible (slows function down)
-  # # cont <- response_content(resp)
-  # # parsed <- content_parsed(cont)
-  #
 }

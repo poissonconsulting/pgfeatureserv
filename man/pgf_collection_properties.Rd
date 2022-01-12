@@ -38,7 +38,8 @@ Get information about a collection's column names.
 base_url <- "https://features.hillcrestgeo.ca/"
 path <- "fwa"
 pgf_collection_properties("whse_basemapping.fwa_named_streams",
- base_url = base_url, path = path)
+  base_url = base_url, path = path
+)
 }
 }
 \seealso{

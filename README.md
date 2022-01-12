@@ -9,11 +9,18 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 <!-- badges: end -->
 
-pgfsr is an R client for
+`pgfsr` is an R client for
 [pg\_featureserv](https://github.com/CrunchyData/pg_featureserv), a
 RESTful web service that provides access to spatial data stored in
 PostGIS tables, as well as spatial processing capability based on
 PostGIS spatial functions.
+
+For more information on pg\_featureserv:  
+- [User
+Guide](https://access.crunchydata.com/documentation/pg_featureserv/1.2.0/)  
+- [API
+Summary](https://github.com/CrunchyData/pg_featureserv/blob/master/API.md#feature-collections)  
+- [Github Page](https://github.com/CrunchyData/pg_featureserv)
 
 ## Installation
 

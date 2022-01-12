@@ -10,7 +10,8 @@
 #' \dontrun{
 #' base_url <- "https://features.hillcrestgeo.ca/"
 #' path <- "fwa"
-#' pgf_collection_properties(base_url = base_url, path = path)
+#' pgf_collection_properties("whse_basemapping.fwa_named_streams",
+#'  base_url = base_url, path = path)
 #' }
 pgf_collection_properties <- function(collection_id,
                                       base_url,

@@ -6,6 +6,8 @@
 \arguments{
 \item{...}{Unused parameters.}
 
+\item{response}{A flag indicating whether to return the raw response object.}
+
 \item{base_url}{A character string of the base URL.}
 
 \item{path}{A character string of the path or endpoint.}

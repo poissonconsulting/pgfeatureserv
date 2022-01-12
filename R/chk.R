@@ -23,12 +23,3 @@ chk_response_json <- function(x) {
   abort_chk(glue("API did not return JSON: {msg}"))
 }
 
-chk_response_gateway <- function(x) {
-  if (vld_response_gateway(x)) {
-    return(invisible(x))
-  }
-  msg <- "Bad Gateway"
-  cd <- status_code(x)
-  abort_chk(glue("API request failed [{cd}]: {msg}"))
-}
-

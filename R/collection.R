@@ -24,7 +24,8 @@ pgf_collection_features <- function(collection_id,
                                     transform = NULL,
                                     groupby = NULL,
                                     user = gh_user(),
-                                    verbose = FALSE) {
+                                    verbose = FALSE,
+                                    response = FALSE) {
 
   chk_string(collection_id)
   chkor_vld(vld_null(filter), vld_named(filter) & vld_vector(filter))
@@ -39,6 +40,7 @@ pgf_collection_features <- function(collection_id,
   chk_null_or(groupby, vld = vld_string)
   chk_null_or(transform, vld = vld_character)
   chk_flag(verbose)
+  chk_flag(response)
 
   properties <- format_parameter(properties)
   bbox <- format_parameter(bbox)
@@ -64,7 +66,13 @@ pgf_collection_features <- function(collection_id,
   path <- file.path(path, "collections", collection_id, "items.json")
   url <- modify_url(url = base_url, path = path, query = query)
 
-  get_request(
+  resp <- get_request(
     url = url, user = user, verbose = verbose
   )
+
+  if(response)
+    return(resp)
+
+  x <- resp$response
+  content_geojson(x)
 }

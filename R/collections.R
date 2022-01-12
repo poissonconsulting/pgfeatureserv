@@ -15,17 +15,25 @@
 pgf_collections <- function(base_url,
                             path,
                             user = gh_user(),
-                            verbose = FALSE) {
+                            verbose = FALSE,
+                            response = FALSE) {
   chk_string(base_url)
   chk_string(path)
   chk_string(user)
   chk_flag(verbose)
+  chk_flag(response)
 
   path <- file.path(path, "collections")
   url <- modify_url(url = base_url, path = path, query = NULL)
 
-  get_request(
-    url = url, user = user, verbose = verbose, geojson = FALSE
+  resp <- get_request(
+    url = url, user = user, verbose = verbose
   )
+
+  if(response)
+    return(resp)
+
+  x <- resp$response
+  content_json(x, "collections")
 }
 

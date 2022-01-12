@@ -18,7 +18,8 @@ pgf_collection_features(
   transform = NULL,
   groupby = NULL,
   user = gh_user(),
-  verbose = FALSE
+  verbose = FALSE,
+  response = FALSE
 )
 }
 \arguments{
@@ -62,6 +63,8 @@ transform function.}
 the server your are querying to contact you in case of misuse.}
 
 \item{verbose}{A flag indicating whether to provide verbose GET response.}
+
+\item{response}{A flag indicating whether to return the raw response object.}
 }
 \value{
 A sf object.
@@ -77,6 +80,7 @@ pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 }
 \seealso{
 Other collections: 
+\code{\link{pgf_collection_properties}()},
 \code{\link{pgf_collections}()}
 }
 \concept{collections}

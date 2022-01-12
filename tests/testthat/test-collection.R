@@ -1,3 +1,19 @@
+test_that("collection can return response", {
+
+  collection_id <- "whse_basemapping.fwa_named_streams"
+  base_url <- "https://features.hillcrestgeo.ca/"
+  path <- "fwa"
+
+  x <- pgf_collection_features(collection_id,
+                               base_url = base_url,
+                               path = path,
+                               limit = 1,
+                               response = TRUE)
+
+  expect_s3_class(x, "pgfs_request")
+  expect_s3_class(x$response, "response")
+})
+
 test_that("collection works with default values ", {
   collection_id <- "whse_basemapping.fwa_named_streams"
   base_url <- "https://features.hillcrestgeo.ca/"
@@ -7,7 +23,6 @@ test_that("collection works with default values ", {
                                base_url = base_url,
                                path = path,
                                limit = 10)
-  x <- x$table
   expect_s3_class(x, "sf")
   expect_s3_class(x, "tbl_df")
   expect_s3_class(x$geometry, "sfc_MULTILINESTRING")
@@ -27,7 +42,6 @@ test_that("collection filter works", {
                                base_url = base_url,
                                path = path,
                                filter = filter)
-  x <- x$table
   expect_s3_class(x, "sf")
   expect_s3_class(x, "tbl_df")
   expect_true(all(x$gnis_name_1 == "Trout Lake"))
@@ -58,12 +72,11 @@ test_that("collection sortby works", {
                                path = path,
                                limit = 1,
                                sortby = sortby)
-  x <- x$table
+
   x2 <- pgf_collection_features(collection_id,
                                 base_url = base_url,
                                 path = path,
                                 limit = 1)
-  x2 <- x2$table
   expect_true(x$blue_line_key < x2$blue_line_key)
 })
 
@@ -80,13 +93,11 @@ test_that("collection sortby descending works", {
                                path = path,
                                limit = 1,
                                sortby = sortby_desc)
-  x <- x$table
   x2 <- pgf_collection_features(collection_id,
                                 base_url = base_url,
                                 path = path,
                                 limit = 1,
                                 sortby = sortby)
-  x2 <- x2$table
   expect_true(x$blue_line_key > x2$blue_line_key)
 })
 
@@ -102,7 +113,6 @@ test_that("collection bounding box gets everything intersecting bounding box", {
                                base_url = base_url,
                                path = path,
                                bbox = bbox)
-  x <- x$table
   expect_identical(x$gnis_name_1, "Trout Lake")
   expect_identical(
     sort(colnames(x)),
@@ -128,7 +138,6 @@ test_that("collection properties works", {
                                path = path,
                                limit = 1,
                                properties = properties)
-  x <- x$table
   expect_identical(colnames(x), c(properties, "geometry"))
 })
 
@@ -145,7 +154,6 @@ test_that("collection precision works", {
                                path = path,
                                precision = precision,
                                limit = 1)
-  x <- x$table
 
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 1L)
@@ -166,7 +174,6 @@ test_that("collection transform works", {
                                path = path,
                                filter = filter,
                                transform = c("ST_Simplify", 50000))
-  x <- x$table
 
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 1L)
@@ -187,7 +194,6 @@ test_that("collection transform to get bbox works", {
                                path = path,
                                 transform = transform,
                                 properties = properties)
-  x <- x$table
 
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 1L)
@@ -207,7 +213,6 @@ test_that("collection groupby works", {
                                path = path,
                                limit = 10,
                                 groupby = groupby)
-  x <- x$table
 
   expect_s3_class(x, "sf")
   # without groupby there are duplicate gnis_names
@@ -231,7 +236,6 @@ test_that("collection bounding box and filter work together", {
                                path = path,
                                filter = filter,
                                bbox = bbox)
-  x <- x$table
   expect_s3_class(x, "sf")
   expect_identical(nrow(x), 0L)
   # not sure why this is happening - is it an issue?
@@ -295,14 +299,12 @@ test_that("collection offset works", {
                                base_url = base_url,
                                path = path,
                                limit = 2)
-  x <- x$table
   expect_identical(x$fwa_stream_networks_label_id, c(1, 2))
   x2 <- pgf_collection_features(collection_id,
                                 base_url = base_url,
                                 path = path,
                                 offset = 1,
                                 limit = 1)
-  x2 <- x2$table
   expect_identical(x2$fwa_stream_networks_label_id,
                    x$fwa_stream_networks_label_id[2])
 })
@@ -312,7 +314,6 @@ test_that("collection offset works with higher numbers", {
   base_url <- "https://features.hillcrestgeo.ca/"
   path <- "fwa"
 
-
   sortby <- "fwa_stream_networks_label_id"
   x <- pgf_collection_features(collection_id,
                                base_url = base_url,
@@ -320,14 +321,12 @@ test_that("collection offset works with higher numbers", {
                                offset = 997,
                                 limit = 2,
                                sortby = sortby)
-  x <- x$table
   x2 <- pgf_collection_features(collection_id,
                                 base_url = base_url,
                                 path = path,
                                 offset = 998,
                                  limit = 1,
                                 sortby = sortby)
-  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
   expect_true(identical(x2$fwa_stream_networks_label_id, x$fwa_stream_networks_label_id[2]))
@@ -345,14 +344,12 @@ test_that("collection offset works with really big number", {
                                offset = 9999,
                                 limit = 2,
                                sortby = sortby)
-  x <- x$table
   x2 <- pgf_collection_features(collection_id,
                                 base_url = base_url,
                                 path = path,
                                 offset = 10000,
                                  limit = 1,
                                 sortby = sortby)
-  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
 
@@ -372,14 +369,12 @@ test_that("collection offset works with offset more than limit", {
                                path = path,
                                 limit = 2,
                                sortby = sortby)
-  x <- x$table
   x2 <- pgf_collection_features(collection_id,
                                 offset = 10001,
                                 base_url = base_url,
                                 path = path,
                                  limit = 1,
                                 sortby = sortby)
-  x2 <- x2$table
   expect_s3_class(x, "sf")
   expect_s3_class(x2, "sf")
 

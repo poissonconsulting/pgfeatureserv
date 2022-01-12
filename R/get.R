@@ -1,6 +1,6 @@
 ### this function is currently designed for json output and not html
 # (e.g. if url ends with /items.html vs /items.json)
-get_request <- function(url, user, verbose = FALSE, geojson = TRUE) {
+get_request <- function(url, user, verbose = FALSE) {
 
   headers <- add_headers(
     "User-Agent" = user
@@ -12,20 +12,23 @@ get_request <- function(url, user, verbose = FALSE, geojson = TRUE) {
   )
 
   chk_response_status(resp)
-  # cont <- response_content(resp)
 
-  table <- response_table(resp, geojson = geojson)
-
-  ## don't need this until paginated requests possible (slows function down)
-  # parsed <- content_parsed(cont)
-
+  # eventually this list will be populated with pages once pagination is
+  # implemented
   structure(
     list(
-      # content = parsed,
-      table = table,
       response = resp
     ),
     class = "pgfs_request"
   )
+
+  # chk_response_status(resp)
+  # table <- response_table(resp, table = table, geojson = geojson,)
+  #
+  # ## don't need this until paginated requests possible (slows function down)
+  # # cont <- response_content(resp)
+  # # parsed <- content_parsed(cont)
+  #
+
 }
 

@@ -6,6 +6,8 @@
 \usage{
 pgf_collection_features(
   collection_id,
+  base_url = getOption("pgfsr_base_url"),
+  path = getOption("pgfsr_path"),
   filter = NULL,
   limit = 10000,
   offset = 0,
@@ -15,14 +17,16 @@ pgf_collection_features(
   precision = NULL,
   transform = NULL,
   groupby = NULL,
-  base_url = hillcrest_url(),
-  path = "fwa",
   user = gh_user(),
   verbose = FALSE
 )
 }
 \arguments{
 \item{collection_id}{A character string of the collection id.}
+
+\item{base_url}{A character string of the base URL.}
+
+\item{path}{A character string of the path or endpoint.}
 
 \item{filter}{A named vector or list of the filter(s) to apply, where the list
 names correspond to column names and the list values correspond to the desired
@@ -54,10 +58,6 @@ function followed by the parameter values (e.g. c("ST_Simplify", 100)).}
 response features by. This would typically be used with an aggregate
 transform function.}
 
-\item{base_url}{A character string of the base URL.}
-
-\item{path}{A character string of the path or endpoint.}
-
 \item{user}{A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.}
 
@@ -77,6 +77,6 @@ pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 }
 \seealso{
 Other collections: 
-\code{\link{pgfs_collections}()}
+\code{\link{pgf_collections}()}
 }
 \concept{collections}

@@ -12,19 +12,19 @@
 #' pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 #' }
 pgf_collection_features <- function(collection_id,
-                     filter = NULL,
-                     limit = 10000,
-                     offset = 0,
-                     sortby = NULL,
-                     bbox = NULL,
-                     properties = NULL,
-                     precision = NULL,
-                     transform = NULL,
-                     groupby = NULL,
-                     base_url = hillcrest_url(),
-                     path = "fwa",
-                     user = gh_user(),
-                     verbose = FALSE) {
+                                    base_url = getOption("pgfsr_base_url"),
+                                    path = getOption("pgfsr_path"),
+                                    filter = NULL,
+                                    limit = 10000,
+                                    offset = 0,
+                                    sortby = NULL,
+                                    bbox = NULL,
+                                    properties = NULL,
+                                    precision = NULL,
+                                    transform = NULL,
+                                    groupby = NULL,
+                                    user = gh_user(),
+                                    verbose = FALSE) {
 
   chk_string(collection_id)
   chkor_vld(vld_null(filter), vld_named(filter) & vld_vector(filter))

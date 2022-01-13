@@ -32,7 +32,11 @@ For more information on pg_featureserv:
 Get information about collections or a single collection:  
 
 * [`pgf_collections()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collections.html)  
-* [`pgf_collection()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection.html)  
+* [`pgf_collection_properties()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_properties.html)  
+* [`pgf_collection_description()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_description.html)  
+* [`pgf_collection_crs()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_crs.html)  
+* [`pgf_collection_bbox()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_bbox.html)  
+* [`pgf_collection_geometry_type()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_geometry_type.html)  
 
 Query features or a single feature from a collection:  
 
@@ -61,7 +65,23 @@ You can install the development version of pgfsr from [GitHub](https://github.co
 devtools::install_github("poissonconsulting/pgfsr")
 ```
 
-## Example
+## Demonstration
+Lookup available collections in BC Freshwater Atlas:
+```{r}
+base_url <- "https://features.hillcrestgeo.ca/"
+path <- "fwa"
+collections <- pgfsr::pgf_collections(base_url = base_url, path = path)
+collections$id
+```
+
+Get Sangan River from the stream network collection:
+```{r}
+coll <- "whse_basemapping.fwa_stream_networks_sp"
+river <- pgfsr::pgf_collection_features(coll, base_url = base_url, path = path,
+                 filter = list(gnis_name = "Sangan River"))
+class(river)
+river[1:5, 1:4]
+```
 
 ## Code of Conduct
 

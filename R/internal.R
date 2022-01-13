@@ -33,6 +33,7 @@ content_geojson <- function(x) {
   chk_response_geojson(x)
   x <- response_content(x)
   x <- geojsonsf::geojson_sf(x)
+  class(x) <- c("sf", "tbl", "tbl_df", "data.frame")
   nm <- sort(setdiff(colnames(x), "geometry"))
   x[, c(nm, "geometry")]
 }

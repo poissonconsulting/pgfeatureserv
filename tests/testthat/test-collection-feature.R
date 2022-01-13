@@ -29,7 +29,8 @@ test_that("collection feature works with default values ", {
   )
 
   expect_s3_class(x, "sf")
+  expect_s3_class(x, "tbl_df")
   expect_s3_class(x$geometry, "sfc_MULTILINESTRING")
-  # expect_identical(sf::st_crs(x)$epsg, 4326L)
-  # expect_identical(colnames(sf::st_coordinates(x)), c("X", "Y", "L1", "L2"))
+  expect_identical(sf::st_crs(x)$epsg, 4326L)
+  expect_identical(colnames(sf::st_coordinates(x)), c("X", "Y", "L1", "L2"))
 })

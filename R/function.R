@@ -2,6 +2,7 @@ pgf_function <- function(function_id,
                          base_url,
                          path,
                          table,
+                         tibble = TRUE,
                          user = gh_user(),
                          verbose = FALSE,
                          response = FALSE) {
@@ -24,7 +25,7 @@ pgf_function <- function(function_id,
   }
 
   x <- resp$response
-  content_json(x, table = table)
+  content_json(x, table = table, tibble = tibble)
 }
 
 #' Get function parameters
@@ -100,7 +101,7 @@ pgf_function_properties <- function(function_id,
 #' Get information on function description.
 #'
 #' @inheritParams params
-#' @return A tibble.
+#' @return A string.
 #' @family functions
 #' @export
 #' @examples
@@ -125,6 +126,7 @@ pgf_function_description <- function(function_id,
     user = user,
     verbose = verbose,
     response = response,
-    table = "description"
+    table = "description",
+    tibble = FALSE
   )
 }

@@ -37,12 +37,14 @@ content_geojson <- function(x) {
   x
 }
 
-content_json <- function(x, table = "collections") {
+content_json <- function(x, table = "collections", tibble = TRUE) {
   chk_response_json(x)
   x <- response_content(x)
   x <- jsonlite::fromJSON(x, flatten = TRUE)
   x <- x[[table]]
-  tibble::as_tibble(x)
+  if(tibble)
+    return(tibble::as_tibble(x))
+  x
 }
 
 content_parsed <- function(x) {

@@ -28,7 +28,7 @@ the server your are querying to contact you in case of misuse.}
 \item{response}{A flag indicating whether to return the raw response object.}
 }
 \value{
-A tibble.
+A string.
 }
 \description{
 Get information on function description.

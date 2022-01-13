@@ -38,7 +38,6 @@ test_that("function description works", {
                                path = path
   )
 
-  expect_s3_class(x, "tbl_df")
-  expect_identical(nrow(x), 1L)
-  expect_identical(names(x), c("value"))
+  expect_type(x, "character")
+  expect_length(x, 1L)
 })

@@ -53,7 +53,11 @@ pgf_collection_feature("whse_basemapping.fwa_wetlands_poly", limit = 1)
 }
 \seealso{
 Other collections: 
+\code{\link{pgf_collection_bbox}()},
+\code{\link{pgf_collection_crs}()},
+\code{\link{pgf_collection_description}()},
 \code{\link{pgf_collection_features}()},
+\code{\link{pgf_collection_geometry_type}()},
 \code{\link{pgf_collection_properties}()},
 \code{\link{pgf_collections}()}
 }

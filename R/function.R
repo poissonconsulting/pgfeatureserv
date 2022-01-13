@@ -1,79 +1,19 @@
-#' Get function
-#'
-#' Get output of function.
-#'
-#' @inheritParams params
-#' @return A sf object.
-#' @family functions
-#' @export
-#' @examples
-#' \dontrun{
-#' function_id <- "fwa_locatealong"
-#' base_url <- "https://features.hillcrestgeo.ca/"
-#' path <- "fwa"
-#'
-#' parameters <- list(
-#'   blue_line_key = 356308001,
-#'   downstream_route_measure = 0
-#' )
-#' pgf_function(function_id,
-#'   base_url = base_url,
-#'   path = path,
-#'   parameters = parameters
-#' )
-#' }
-#'
 pgf_function <- function(function_id,
                          base_url,
                          path,
-                         parameters,
-                         limit = 10000,
-                         offset = 0,
-                         sortby = NULL,
-                         bbox = NULL,
-                         properties = NULL,
-                         precision = NULL,
-                         transform = NULL,
+                         table,
                          user = gh_user(),
                          verbose = FALSE,
                          response = FALSE) {
   chk_string(function_id)
-  chkor_vld(vld_null(parameters),
-            vld_named(parameters) & vld_vector(parameters))
-  chk_whole_number(limit)
-  chk_gt(limit)
-  chk_lte(limit, 10000L)
-  chk_whole_number(offset)
-  chk_gte(offset)
-  chk_null_or(bbox, vld = vld_numeric)
-  chk_null_or(properties, vld = vld_character)
-  chkor_vld(vld_null(precision),
-            vld_whole_number(precision) & vld_gt(precision, 0))
-  chk_null_or(transform, vld = vld_character)
+  chk_string(base_url)
+  chk_string(path)
+  chk_string(user)
   chk_flag(verbose)
   chk_flag(response)
 
-  properties <- format_parameter(properties)
-  bbox <- format_parameter(bbox)
-  transform <- format_parameter(transform)
-  limit <- format_number(limit)
-  offset <- format_number(offset)
-
-  query <- c(
-    parameters,
-    list(
-      limit = limit,
-      offset = offset,
-      sortBy = sortby,
-      bbox = bbox,
-      properties = properties,
-      transform = transform,
-      precision = precision
-    )
-  )
-
-  path <- file.path(path, "functions", function_id, "items")
-  url <- modify_url(url = base_url, path = path, query = query)
+  path <- file.path(path, "functions", function_id)
+  url <- modify_url(url = base_url, path = path, query = NULL)
 
   resp <- get_request(
     url = url, user = user, verbose = verbose
@@ -84,5 +24,107 @@ pgf_function <- function(function_id,
   }
 
   x <- resp$response
-  content_geojson(x)
+  content_json(x, table = table)
+}
+
+#' Get function parameters
+#'
+#' Get information on function parameters.
+#'
+#' @inheritParams params
+#' @return A tibble.
+#' @family functions
+#' @export
+#' @examples
+#' \dontrun{
+#' function_id <- "fwa_locatealong"
+#' base_url <- "https://features.hillcrestgeo.ca/"
+#' path <- "fwa"
+#' pgf_function_parameters(
+#'   function_id = function_id, base_url = base_url, path = path
+#' )
+#' }
+pgf_function_parameters <- function(function_id,
+                         base_url,
+                          path,
+                          user = gh_user(),
+                          verbose = FALSE,
+                          response = FALSE) {
+  pgf_function(
+    function_id = function_id,
+    base_url = base_url,
+    path = path,
+    user = user,
+    verbose = verbose,
+    response = response,
+    table = "parameters"
+  )
+}
+
+#' Get function properties
+#'
+#' Get information on function properties.
+#'
+#' @inheritParams params
+#' @return A tibble.
+#' @family functions
+#' @export
+#' @examples
+#' \dontrun{
+#' function_id <- "fwa_locatealong"
+#' base_url <- "https://features.hillcrestgeo.ca/"
+#' path <- "fwa"
+#' pgf_function_properties(
+#'   function_id = function_id, base_url = base_url, path = path
+#' )
+#' }
+pgf_function_properties <- function(function_id,
+                                    base_url,
+                                    path,
+                                    user = gh_user(),
+                                    verbose = FALSE,
+                                    response = FALSE) {
+  pgf_function(
+    function_id = function_id,
+    base_url = base_url,
+    path = path,
+    user = user,
+    verbose = verbose,
+    response = response,
+    table = "properties"
+  )
+}
+
+#' Get function description
+#'
+#' Get information on function description.
+#'
+#' @inheritParams params
+#' @return A tibble.
+#' @family functions
+#' @export
+#' @examples
+#' \dontrun{
+#' function_id <- "fwa_locatealong"
+#' base_url <- "https://features.hillcrestgeo.ca/"
+#' path <- "fwa"
+#' pgf_function_description(
+#'   function_id = function_id, base_url = base_url, path = path
+#' )
+#' }
+pgf_function_description <- function(function_id,
+                                    base_url,
+                                    path,
+                                    user = gh_user(),
+                                    verbose = FALSE,
+                                    response = FALSE) {
+  pgf_function(
+    function_id = function_id,
+    base_url = base_url,
+    path = path,
+    user = user,
+    verbose = verbose,
+    response = response,
+    table = "description"
+  )
 }

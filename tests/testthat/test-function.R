@@ -1,100 +1,44 @@
-test_that("function can return response", {
+test_that("function properties works", {
   function_id <- "fwa_locatealong"
   base_url <- "https://features.hillcrestgeo.ca/"
   path <- "fwa"
 
-  parameters <- list(
-    blue_line_key = 356308001,
-    downstream_route_measure = 0
+  x <- pgf_function_properties(function_id,
+                           base_url = base_url,
+                           path = path
   )
 
-  x <- pgf_function(function_id,
-    base_url = base_url,
-    path = path,
-    parameters = parameters,
-    limit = 1,
-    response = TRUE
-  )
-
-  expect_s3_class(x, "pgfs_request")
-  expect_s3_class(x$response, "response")
-})
-
-test_that("function works", {
-  function_id <- "fwa_locatealong"
-  base_url <- "https://features.hillcrestgeo.ca/"
-  path <- "fwa"
-
-  parameters <- list(
-    blue_line_key = 356308001,
-    downstream_route_measure = 100
-  )
-
-  x <- pgf_function(function_id,
-    base_url = base_url,
-    path = path,
-    parameters = parameters
-  )
-
-  expect_s3_class(x, "sf")
+  expect_s3_class(x, "tbl_df")
   expect_identical(nrow(x), 1L)
+  expect_identical(names(x), c("name", "type", "description"))
 })
 
-test_that("function informative error invalid function_id", {
+test_that("function parameters works", {
+  function_id <- "fwa_locatealong"
   base_url <- "https://features.hillcrestgeo.ca/"
   path <- "fwa"
 
-  parameters <- list(
-    blue_line_key = 356308001,
-    downstream_route_measure = 0
+  x <- pgf_function_parameters(function_id,
+                               base_url = base_url,
+                               path = path
   )
 
-  expect_chk_error(
-    pgf_function("not_a_function",
-      base_url = base_url,
-      path = path,
-      parameters = parameters
-    ),
-    "API request failed \\[404\\]: Function not found: not_a_function"
-  )
+  expect_s3_class(x, "tbl_df")
+  expect_identical(nrow(x), 2L)
+  expect_identical(names(x), c("name", "type", "description"))
 })
 
-test_that("function informative error invalid transform", {
+test_that("function description works", {
+  function_id <- "fwa_locatealong"
   base_url <- "https://features.hillcrestgeo.ca/"
   path <- "fwa"
 
-  parameters <- list(
-    blue_line_key = 356308001,
-    downstream_route_measure = 0
+  x <- pgf_function_description(function_id,
+                               base_url = base_url,
+                               path = path
   )
 
-  expect_chk_error(
-    pgf_function("fwa_locatealong",
-      base_url = base_url,
-      path = path,
-      parameters = parameters,
-      transform = "not_a_transform"
-    ),
-    "API request failed \\[400\\]: Invalid value for parameter transform: not_a_transform"
-  )
-})
-
-test_that("function informative error bounding box", {
-  base_url <- "https://features.hillcrestgeo.ca/"
-  path <- "fwa"
-
-  parameters <- list(
-    blue_line_key = 356308001,
-    downstream_route_measure = 0
-  )
-
-  expect_chk_error(
-    pgf_function("fwa_locatealong",
-      base_url = base_url,
-      path = path,
-      parameters = parameters,
-      bbox = 1
-    ),
-    "API request failed \\[400\\]: Invalid value for parameter bbox: 1"
-  )
+  expect_s3_class(x, "tbl_df")
+  expect_identical(nrow(x), 1L)
+  expect_identical(names(x), c("value"))
 })

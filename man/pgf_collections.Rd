@@ -40,6 +40,7 @@ pgf_collections(base_url = base_url, path = path)
 \seealso{
 Other collections: 
 \code{\link{pgf_collection_features}()},
+\code{\link{pgf_collection_feature}()},
 \code{\link{pgf_collection_properties}()}
 }
 \concept{collections}

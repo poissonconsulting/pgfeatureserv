@@ -45,6 +45,7 @@ pgf_collection_properties("whse_basemapping.fwa_named_streams",
 \seealso{
 Other collections: 
 \code{\link{pgf_collection_features}()},
+\code{\link{pgf_collection_feature}()},
 \code{\link{pgf_collections}()}
 }
 \concept{collections}

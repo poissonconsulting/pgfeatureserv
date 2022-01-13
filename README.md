@@ -52,7 +52,7 @@ Get information about functions or a single function:
 -   [`pgf_function_parameters()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_parameters.html)  
 -   [`pgf_function_description()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_description.html)
 
-Execute a spatial function and produce a result:
+Execute a spatial function and get result:
 
 -   [`pgf_function_result()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_result.html)
 

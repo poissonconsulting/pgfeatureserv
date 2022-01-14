@@ -13,13 +13,13 @@ test_that("collections information works", {
   ))
 })
 
-# test_that("collections collection_id values haven't changed", {
-#   base_url <- "https://features.hillcrestgeo.ca/"
-#   path <- "fwa"
-#   x <- pgf_collections(base_url = base_url,
-#                        path = path)
-#   expect_snapshot_data(x["collection_id"], "collections")
-# })
+test_that("collections collection_id values haven't changed", {
+  base_url <- "https://features.hillcrestgeo.ca/"
+  path <- "fwa"
+  x <- pgf_collections(base_url = base_url,
+                       path = path)
+  expect_snapshot_data(x, "collections")
+})
 
 test_that("collection properties can return response", {
   base_url <- "https://features.hillcrestgeo.ca/"

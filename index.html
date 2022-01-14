@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Client for pg_featureserv RESTful web service • pgfsr</title>
+<title>Client for pg_featureserv RESTful web service • pgfeatureserv</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
@@ -32,7 +32,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="index.html">pgfsr</a>
+        <a class="navbar-link" href="index.html">pgfeatureserv</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9000</span>
       </span>
     </div>
@@ -56,11 +56,11 @@
       </header><div class="row">
   <div class="contents col-md-9">
 <div class="section level1">
-<div class="page-header"><h1 id="pgfsr">pgfsr<a class="anchor" aria-label="anchor" href="#pgfsr"></a>
+<div class="page-header"><h1 id="pgfeatureserv">pgfeatureserv<a class="anchor" aria-label="anchor" href="#pgfeatureserv"></a>
 </h1></div>
 <!-- badges: start -->
 
-<p><code>pgfsr</code> is an R client for <a href="https://github.com/CrunchyData/pg_featureserv" class="external-link">pg_featureserv</a>, a RESTful web service that provides access to spatial data stored in PostGIS tables, as well as spatial processing capability based on PostGIS spatial functions.</p>
+<p><code>pgfeatureserv</code> is an R client for <a href="https://github.com/CrunchyData/pg_featureserv" class="external-link">pg_featureserv</a>, a RESTful web service that provides access to spatial data stored in PostGIS tables, as well as spatial processing capability based on PostGIS spatial functions.</p>
 <p>For more information on pg_featureserv:<br>
 - <a href="https://access.crunchydata.com/documentation/pg_featureserv/1.2.0/" class="external-link">User Guide</a><br>
 - <a href="https://github.com/CrunchyData/pg_featureserv/blob/master/API.md#feature-collections" class="external-link">API Summary</a><br>
@@ -71,28 +71,28 @@
 <p>Get information about collections or a single collection:</p>
 <ul>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collections.html" class="external-link"><code>pgf_collections()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collections.html" class="external-link"><code>pgf_collections()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_properties.html" class="external-link"><code>pgf_collection_properties()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_properties.html" class="external-link"><code>pgf_collection_properties()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_description.html" class="external-link"><code>pgf_collection_description()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_description.html" class="external-link"><code>pgf_collection_description()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_crs.html" class="external-link"><code>pgf_collection_crs()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_crs.html" class="external-link"><code>pgf_collection_crs()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_bbox.html" class="external-link"><code>pgf_collection_bbox()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_bbox.html" class="external-link"><code>pgf_collection_bbox()</code></a><br>
 </li>
-<li><a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_geometry_type.html" class="external-link"><code>pgf_collection_geometry_type()</code></a></li>
+<li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_geometry_type.html" class="external-link"><code>pgf_collection_geometry_type()</code></a></li>
 </ul>
 <p>Query features or a single feature from a collection:</p>
 <ul>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_features.html" class="external-link"><code>pgf_collection_features()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_features.html" class="external-link"><code>pgf_collection_features()</code></a><br>
 </li>
-<li><a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_feature.html" class="external-link"><code>pgf_collection_feature()</code></a></li>
+<li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_feature.html" class="external-link"><code>pgf_collection_feature()</code></a></li>
 </ul>
 </div>
 <div class="section level3">
@@ -101,28 +101,28 @@
 <p>Get information about functions or a single function:</p>
 <ul>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_functions.html" class="external-link"><code>pgf_functions()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_functions.html" class="external-link"><code>pgf_functions()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_function_properties.html" class="external-link"><code>pgf_function_properties()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_properties.html" class="external-link"><code>pgf_function_properties()</code></a><br>
 </li>
 <li>
-<a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_function_parameters.html" class="external-link"><code>pgf_function_parameters()</code></a><br>
+<a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_parameters.html" class="external-link"><code>pgf_function_parameters()</code></a><br>
 </li>
-<li><a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_function_description.html" class="external-link"><code>pgf_function_description()</code></a></li>
+<li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_description.html" class="external-link"><code>pgf_function_description()</code></a></li>
 </ul>
 <p>Execute a spatial function and get result:</p>
 <ul>
-<li><a href="https://poissonconsulting.github.io/pgfsr/reference/pgf_function_result.html" class="external-link"><code>pgf_function_result()</code></a></li>
+<li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_result.html" class="external-link"><code>pgf_function_result()</code></a></li>
 </ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of pgfsr from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of pgfeatureserv from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"poissonconsulting/pgfsr"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"poissonconsulting/pgfeatureserv"</span><span class="op">)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="demonstration">Demonstration<a class="anchor" aria-label="anchor" href="#demonstration"></a>
@@ -131,7 +131,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://features.hillcrestgeo.ca/"</span>
 <span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span>
-<span class="va">collections</span> <span class="op">&lt;-</span> <span class="fu">pgfsr</span><span class="fu">::</span><span class="fu"><a href="reference/pgf_collections.html">pgf_collections</a></span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
+<span class="va">collections</span> <span class="op">&lt;-</span> <span class="fu">pgfeatureserv</span><span class="fu">::</span><span class="fu"><a href="reference/pgf_collections.html">pgf_collections</a></span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span>
 <span class="va">collections</span><span class="op">$</span><span class="va">id</span>
 <span class="co">#&gt;  [1] "hydrosheds.hybas_lev12_v1c"                      </span>
 <span class="co">#&gt;  [2] "usgs.wbdhu12"                                    </span>
@@ -158,22 +158,24 @@
 <p>Get Sangan River from the stream network collection:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">coll</span> <span class="op">&lt;-</span> <span class="st">"whse_basemapping.fwa_stream_networks_sp"</span>
-<span class="va">river</span> <span class="op">&lt;-</span> <span class="fu">pgfsr</span><span class="fu">::</span><span class="fu"><a href="reference/pgf_collection_features.html">pgf_collection_features</a></span><span class="op">(</span><span class="va">coll</span>, base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span>,
+<span class="va">river</span> <span class="op">&lt;-</span> <span class="fu">pgfeatureserv</span><span class="fu">::</span><span class="fu"><a href="reference/pgf_collection_features.html">pgf_collection_features</a></span><span class="op">(</span><span class="va">coll</span>, base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span>,
                  filter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>gnis_name <span class="op">=</span> <span class="st">"Sangan River"</span><span class="op">)</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></span><span class="op">(</span><span class="va">river</span><span class="op">)</span>
-<span class="co">#&gt; [1] "sf"         "data.frame"</span>
+<span class="co">#&gt; [1] "sf"         "tbl"        "tbl_df"     "data.frame"</span>
 <span class="va">river</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">5</span>, <span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">]</span>
+<span class="co">#&gt; # A data frame: 5 × 4</span>
 <span class="co">#&gt;   blue_line_key blue_line_key_50k downstream_route_measure edge_type</span>
-<span class="co">#&gt; 1     360879896                11                 1266.234      1000</span>
-<span class="co">#&gt; 2     360879896                11                 8743.778      1000</span>
-<span class="co">#&gt; 3     360879896                11                 2318.819      1000</span>
-<span class="co">#&gt; 4     360879896                11                    0.000      1250</span>
-<span class="co">#&gt; 5     360879896               130                17516.161      1050</span></code></pre></div>
+<span class="co">#&gt;           &lt;dbl&gt;             &lt;dbl&gt;                    &lt;dbl&gt;     &lt;dbl&gt;</span>
+<span class="co">#&gt; 1     360879896                11                    1266.      1000</span>
+<span class="co">#&gt; 2     360879896                11                    8744.      1000</span>
+<span class="co">#&gt; 3     360879896                11                    2319.      1000</span>
+<span class="co">#&gt; 4     360879896                11                       0       1250</span>
+<span class="co">#&gt; 5     360879896               130                   17516.      1050</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the pgfsr project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the pgfeatureserv project is released with a <a href="https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
   </div>
@@ -198,7 +200,7 @@
 <div class="citation">
 <h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li><a href="authors.html#citation">Citing pgfsr</a></li>
+<li><a href="authors.html#citation">Citing pgfeatureserv</a></li>
 </ul>
 </div>
 
@@ -214,8 +216,8 @@
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
-<li><a href="https://github.com/poissonconsulting/pgfsr/actions" class="external-link"><img src="https://github.com/poissonconsulting/pgfsr/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
-<li><a href="https://app.codecov.io/gh/poissonconsulting/pgfsr?branch=main" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/pgfsr/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://github.com/poissonconsulting/pgfeatureserv/actions" class="external-link"><img src="https://github.com/poissonconsulting/pgfeatureserv/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/poissonconsulting/pgfeatureserv?branch=main" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/pgfeatureserv/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 </ul>
 </div>
 

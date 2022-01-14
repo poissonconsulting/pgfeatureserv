@@ -7,9 +7,7 @@ test_that("collections information works", {
   )
   expect_s3_class(x, "tbl_df")
   expect_identical(names(x), c(
-    "id", "title", "description",
-    "links", "extent.spatial.crs",
-    "extent.spatial.bbox"
+    "id", "title", "description", "extent", "links"
   ))
 })
 
@@ -18,7 +16,7 @@ test_that("collections collection_id values haven't changed", {
   path <- "fwa"
   x <- pgf_collections(base_url = base_url,
                        path = path)
-  expect_snapshot_data(x, "collections")
+  expect_snapshot_data(x$id, "collections")
 })
 
 test_that("collection properties can return response", {

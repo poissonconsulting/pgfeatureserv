@@ -1,4 +1,3 @@
 function(request) {
-  request |>
-    gsub_request("https://features.hillcrestgeo.ca/fwa/", "h/", fixed = TRUE)
+    gsub_request(request, "https://features.hillcrestgeo.ca/fwa/", "h/", fixed = TRUE)
 }

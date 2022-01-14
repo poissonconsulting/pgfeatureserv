@@ -1,8 +1,8 @@
-Package: pgfsr
+Package: pgfeatureserv
 Title: Client for pg_featureserv RESTful web service
 Version: 0.0.0.9000
 Authors@R: 
-    person("Seb", "Dalgarno", , "dalgarno@unbc.ca", role = c("aut", "cre"),
+    person("Seb", "Dalgarno", , "seb.dalgarno@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3658-4517"))
 Description: Client for pg_featureserv, a RESTful geospatial feature server for PostGIS.
 License: MIT + file LICENSE

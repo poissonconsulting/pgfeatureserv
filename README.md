@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pgfsr
+# pgfeatureserv
 
 <!-- badges: start -->
 
@@ -9,12 +9,12 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-[![R-CMD-check](https://github.com/poissonconsulting/pgfsr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/pgfsr/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/pgfeatureserv/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/pgfeatureserv/actions)
 [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/pgfsr/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/pgfsr?branch=main)
+coverage](https://codecov.io/gh/poissonconsulting/pgfeatureserv/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/pgfeatureserv?branch=main)
 <!-- badges: end -->
 
-`pgfsr` is an R client for
+`pgfeatureserv` is an R client for
 [pg\_featureserv](https://github.com/CrunchyData/pg_featureserv), a
 RESTful web service that provides access to spatial data stored in
 PostGIS tables, as well as spatial processing capability based on
@@ -31,39 +31,39 @@ Summary](https://github.com/CrunchyData/pg_featureserv/blob/master/API.md#featur
 
 Get information about collections or a single collection:
 
--   [`pgf_collections()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collections.html)  
--   [`pgf_collection_properties()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_properties.html)  
--   [`pgf_collection_description()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_description.html)  
--   [`pgf_collection_crs()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_crs.html)  
--   [`pgf_collection_bbox()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_bbox.html)  
--   [`pgf_collection_geometry_type()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_geometry_type.html)
+-   [`pgf_collections()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collections.html)  
+-   [`pgf_collection_properties()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_properties.html)  
+-   [`pgf_collection_description()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_description.html)  
+-   [`pgf_collection_crs()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_crs.html)  
+-   [`pgf_collection_bbox()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_bbox.html)  
+-   [`pgf_collection_geometry_type()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_geometry_type.html)
 
 Query features or a single feature from a collection:
 
--   [`pgf_collection_features()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_features.html)  
--   [`pgf_collection_feature()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_collection_feature.html)
+-   [`pgf_collection_features()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_features.html)  
+-   [`pgf_collection_feature()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_collection_feature.html)
 
 ### Work with functions
 
 Get information about functions or a single function:
 
--   [`pgf_functions()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_functions.html)  
--   [`pgf_function_properties()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_properties.html)  
--   [`pgf_function_parameters()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_parameters.html)  
--   [`pgf_function_description()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_description.html)
+-   [`pgf_functions()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_functions.html)  
+-   [`pgf_function_properties()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_properties.html)  
+-   [`pgf_function_parameters()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_parameters.html)  
+-   [`pgf_function_description()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_description.html)
 
 Execute a spatial function and get result:
 
--   [`pgf_function_result()`](https://poissonconsulting.github.io/pgfsr/reference/pgf_function_result.html)
+-   [`pgf_function_result()`](https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_result.html)
 
 ## Installation
 
-You can install the development version of pgfsr from
+You can install the development version of pgfeatureserv from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("poissonconsulting/pgfsr")
+devtools::install_github("poissonconsulting/pgfeatureserv")
 ```
 
 ## Demonstration
@@ -73,7 +73,7 @@ Lookup available collections in BC Freshwater Atlas:
 ``` r
 base_url <- "https://features.hillcrestgeo.ca/"
 path <- "fwa"
-collections <- pgfsr::pgf_collections(base_url = base_url, path = path)
+collections <- pgfeatureserv::pgf_collections(base_url = base_url, path = path)
 collections$id
 #>  [1] "hydrosheds.hybas_lev12_v1c"                      
 #>  [2] "usgs.wbdhu12"                                    
@@ -103,22 +103,24 @@ Get Sangan River from the stream network collection:
 
 ``` r
 coll <- "whse_basemapping.fwa_stream_networks_sp"
-river <- pgfsr::pgf_collection_features(coll, base_url = base_url, path = path,
+river <- pgfeatureserv::pgf_collection_features(coll, base_url = base_url, path = path,
                  filter = list(gnis_name = "Sangan River"))
 class(river)
-#> [1] "sf"         "data.frame"
+#> [1] "sf"         "tbl"        "tbl_df"     "data.frame"
 river[1:5, 1:4]
+#> # A data frame: 5 × 4
 #>   blue_line_key blue_line_key_50k downstream_route_measure edge_type
-#> 1     360879896                11                 1266.234      1000
-#> 2     360879896                11                 8743.778      1000
-#> 3     360879896                11                 2318.819      1000
-#> 4     360879896                11                    0.000      1250
-#> 5     360879896               130                17516.161      1050
+#>           <dbl>             <dbl>                    <dbl>     <dbl>
+#> 1     360879896                11                    1266.      1000
+#> 2     360879896                11                    8744.      1000
+#> 3     360879896                11                    2319.      1000
+#> 4     360879896                11                       0       1250
+#> 5     360879896               130                   17516.      1050
 ```
 
 ## Code of Conduct
 
-Please note that the pgfsr project is released with a [Contributor Code
-of
+Please note that the pgfeatureserv project is released with a
+[Contributor Code of
 Conduct](https://contributor-covenant.org/version/2/0/CODE_OF_CONDUCT.html).
 By contributing to this project, you agree to abide by its terms.

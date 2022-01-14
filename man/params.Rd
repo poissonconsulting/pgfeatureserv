@@ -2,7 +2,7 @@
 % Please edit documentation in R/params.R
 \name{params}
 \alias{params}
-\title{Parameter Descriptions for pgfsr Functions}
+\title{Parameter Descriptions for pgfeatureserv Functions}
 \arguments{
 \item{...}{Unused parameters.}
 
@@ -59,6 +59,6 @@ transform function.}
 specific function.}
 }
 \description{
-Parameter Descriptions for pgfsr Functions
+Parameter Descriptions for pgfeatureserv Functions
 }
 \keyword{internal}

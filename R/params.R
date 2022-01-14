@@ -1,4 +1,4 @@
-#' Parameter Descriptions for pgfsr Functions
+#' Parameter Descriptions for pgfeatureserv Functions
 #' @param ... Unused parameters.
 #' @param response A flag indicating whether to return the raw response object.
 #' @param base_url A character string of the base URL.

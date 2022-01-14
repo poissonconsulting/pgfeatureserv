@@ -1,6 +1,6 @@
-# Contributing to pgfsr
+# Contributing to pgfeatureserv
 
-This outlines how to propose a change to pgfsr. 
+This outlines how to propose a change to pgfeatureserv. 
 
 ## Fixing typos
 
@@ -41,6 +41,6 @@ Contributions with test cases included are easier to accept.
 
 ## Code of Conduct
 
-Please note that the pgfsr project is released with a
+Please note that the pgfeatureserv project is released with a
 [Contributor Code of Conduct](/.github/CODE_OF_CONDUCT.md). 
 By contributing to this project you agree to abide by its terms.

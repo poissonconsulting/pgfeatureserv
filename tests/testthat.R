@@ -1,4 +1,4 @@
 library(testthat)
-library(pgfsr)
+library(pgfeatureserv)
 
-test_check("pgfsr")
+test_check("pgfeatureserv")

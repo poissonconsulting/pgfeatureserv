@@ -1,6 +1,6 @@
-# Getting help with pgfsr
+# Getting help with pgfeatureserv
 
-Thanks for using pgfsr!
+Thanks for using pgfeatureserv!
 Before filing an issue, there are a few places to explore and pieces to put together to make the process as smooth as possible.
 
 ## Make sure its new

@@ -16,11 +16,11 @@ Imports:
     httr,
     jsonlite,
     lifecycle,
-    sf,
     tibble
 Suggests: 
     covr,
     httptest,
     readr,
+    sf,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

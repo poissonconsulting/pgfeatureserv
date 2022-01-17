@@ -7,11 +7,11 @@
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![License:
-MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![R-CMD-check](https://github.com/poissonconsulting/pgfeatureserv/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/pgfeatureserv/actions)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/pgfeatureserv/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/pgfeatureserv?branch=main)
+[![License:
+MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 `pgfeatureserv` is an R client for

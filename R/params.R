@@ -12,6 +12,7 @@
 #' @param limit A positive whole number that limits the number of
 #' features in the response.
 #' @param offset A positive whole number that starts the response at an offset.
+#' @param nocache A flag indicating whether to cache results.
 #' @param sortby A string that sorts the response items by a property.
 #' Default is ascending but property name can be prepended with
 #' '-' to indicate descending.

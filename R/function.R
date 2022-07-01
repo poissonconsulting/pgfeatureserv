@@ -2,6 +2,7 @@ pgf_function <- function(function_id,
                          base_url,
                          path,
                          table,
+                         nocache = FALSE,
                          tibble = TRUE,
                          user = gh_user(),
                          verbose = FALSE,
@@ -9,12 +10,16 @@ pgf_function <- function(function_id,
   chk_string(function_id)
   chk_string(base_url)
   chk_string(path)
+  chk_flag(nocache)
   chk_string(user)
   chk_flag(verbose)
   chk_flag(response)
 
   path <- file.path(path, "functions", function_id)
-  url <- modify_url(url = base_url, path = path, query = NULL)
+  query <- list(
+    nocache = nocache
+  )
+  url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
     url = url, user = user, verbose = verbose
@@ -48,6 +53,7 @@ pgf_function <- function(function_id,
 pgf_function_parameters <- function(function_id,
                          base_url,
                           path,
+                         nocache = FALSE,
                           user = gh_user(),
                           verbose = FALSE,
                           response = FALSE) {
@@ -55,6 +61,7 @@ pgf_function_parameters <- function(function_id,
     function_id = function_id,
     base_url = base_url,
     path = path,
+    nocache = nocache,
     user = user,
     verbose = verbose,
     response = response,
@@ -82,6 +89,7 @@ pgf_function_parameters <- function(function_id,
 pgf_function_properties <- function(function_id,
                                     base_url,
                                     path,
+                                    nocache = FALSE,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
@@ -89,6 +97,7 @@ pgf_function_properties <- function(function_id,
     function_id = function_id,
     base_url = base_url,
     path = path,
+    nocache = nocache,
     user = user,
     verbose = verbose,
     response = response,
@@ -116,6 +125,7 @@ pgf_function_properties <- function(function_id,
 pgf_function_description <- function(function_id,
                                     base_url,
                                     path,
+                                    nocache = FALSE,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
@@ -123,6 +133,7 @@ pgf_function_description <- function(function_id,
     function_id = function_id,
     base_url = base_url,
     path = path,
+    nocache = nocache,
     user = user,
     verbose = verbose,
     response = response,

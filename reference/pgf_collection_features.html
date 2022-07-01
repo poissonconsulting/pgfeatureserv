@@ -62,6 +62,7 @@ parameters (see API specs <a href="https://github.com/CrunchyData/pg_featureserv
 <span>  precision <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  transform <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  groupby <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  nocache <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  response <span class="op">=</span> <span class="cn">FALSE</span></span>
@@ -130,6 +131,11 @@ function followed by the parameter values (e.g. c("ST_Simplify", 100)).</p></dd>
 <dd><p>A string of the property name (i.e., column name) to group
 response features by. This would typically be used with an aggregate
 transform function.</p></dd>
+
+
+<dt>nocache</dt>
+<dd><p>A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.</p></dd>
 
 
 <dt>user</dt>

@@ -51,6 +51,7 @@
 <span>  <span class="va">function_id</span>,</span>
 <span>  <span class="va">base_url</span>,</span>
 <span>  <span class="va">path</span>,</span>
+<span>  nocache <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,</span>
 <span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  response <span class="op">=</span> <span class="cn">FALSE</span></span>
@@ -69,6 +70,11 @@
 
 <dt>path</dt>
 <dd><p>A character string of the path or endpoint.</p></dd>
+
+
+<dt>nocache</dt>
+<dd><p>A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.</p></dd>
 
 
 <dt>user</dt>

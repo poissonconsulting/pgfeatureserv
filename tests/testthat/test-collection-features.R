@@ -1,4 +1,4 @@
-httptest::with_mock_api({
+httptest::with_mock_dir("cfs", {
   test_that("collection can return response", {
     collection_id <- "whse_basemapping.fwa_named_streams"
     base_url <- "https://features.hillcrestgeo.ca/"
@@ -8,7 +8,8 @@ httptest::with_mock_api({
                                  base_url = base_url,
                                  path = path,
                                  limit = 1,
-                                 response = TRUE
+                                 response = TRUE,
+                                 nocache = NULL,
     )
 
     expect_s3_class(x, "pgfs_request")
@@ -23,6 +24,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 10
     )
     expect_s3_class(x, "sf")
@@ -43,6 +45,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  filter = filter
     )
     expect_s3_class(x, "sf")
@@ -77,6 +80,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 1,
                                  sortby = sortby
     )
@@ -84,6 +88,7 @@ httptest::with_mock_api({
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   limit = 1
     )
     expect_true(x$blue_line_key < x2$blue_line_key)
@@ -100,12 +105,14 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 1,
                                  sortby = sortby_desc
     )
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   limit = 1,
                                   sortby = sortby
     )
@@ -123,6 +130,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  bbox = bbox
     )
     expect_identical(x$gnis_name_1, "Trout Lake")
@@ -151,6 +159,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 1,
                                  properties = properties
     )
@@ -168,6 +177,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  precision = precision,
                                  limit = 1
     )
@@ -189,6 +199,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  filter = filter,
                                  transform = c("ST_Simplify", 50000)
     )
@@ -209,6 +220,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  transform = transform,
                                  properties = properties
     )
@@ -229,6 +241,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 10,
                                  groupby = groupby
     )
@@ -253,6 +266,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  filter = filter,
                                  bbox = bbox
     )
@@ -273,7 +287,8 @@ httptest::with_mock_api({
     expect_chk_error(
       pgf_collection_features("not_a_collection",
                               base_url = base_url,
-                              path = path
+                              path = path,
+                              nocache = 'true'
       ),
       "API request failed \\[404\\]: Collection not found: not_a_collection"
     )
@@ -288,6 +303,7 @@ httptest::with_mock_api({
       pgf_collection_features(collection_id,
                               base_url = base_url,
                               path = path,
+                              nocache = 'true',
                               transform = "not_a_transform"
       ),
       "API request failed \\[400\\]: Invalid value for parameter transform: not_a_transform"
@@ -303,6 +319,7 @@ httptest::with_mock_api({
       pgf_collection_features(collection_id,
                               base_url = base_url,
                               path = path,
+                              nocache = 'true',
                               bbox = 1
       ),
       "API request failed \\[400\\]: Invalid value for parameter bbox: 1"
@@ -317,6 +334,7 @@ httptest::with_mock_api({
     expect_chk_error(pgf_collection_features(collection_id,
                                              base_url = base_url,
                                              path = path,
+                                             nocache = 'true',
                                              filter = c(1)
     ))
   })
@@ -329,18 +347,20 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 2
     )
-    expect_identical(x$fwa_stream_networks_label_id, c(1, 2))
+    expect_identical(x$named_streams_id, c(1, 2))
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   offset = 1,
                                   limit = 1
     )
     expect_identical(
-      x2$fwa_stream_networks_label_id,
-      x$fwa_stream_networks_label_id[2]
+      x2$named_streams_id,
+      x$named_streams_id[2]
     )
   })
 
@@ -349,10 +369,11 @@ httptest::with_mock_api({
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    sortby <- "fwa_stream_networks_label_id"
+    sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  offset = 997,
                                  limit = 2,
                                  sortby = sortby
@@ -360,13 +381,14 @@ httptest::with_mock_api({
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   offset = 998,
                                   limit = 1,
                                   sortby = sortby
     )
     expect_s3_class(x, "sf")
     expect_s3_class(x2, "sf")
-    expect_true(identical(x2$fwa_stream_networks_label_id, x$fwa_stream_networks_label_id[2]))
+    expect_true(identical(x2$named_streams_id, x$named_streams_id[2]))
   })
 
   test_that("collection offset works with really big number", {
@@ -374,10 +396,11 @@ httptest::with_mock_api({
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    sortby <- "fwa_stream_networks_label_id"
+    sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  offset = 9999,
                                  limit = 2,
                                  sortby = sortby
@@ -385,6 +408,7 @@ httptest::with_mock_api({
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   offset = 10000,
                                   limit = 1,
                                   sortby = sortby
@@ -393,8 +417,8 @@ httptest::with_mock_api({
     expect_s3_class(x2, "sf")
 
     expect_true(identical(
-      x2$fwa_stream_networks_label_id,
-      x$fwa_stream_networks_label_id[2]
+      x2$named_streams_id,
+      x$named_streams_id[2]
     ))
   })
 
@@ -403,11 +427,12 @@ httptest::with_mock_api({
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    sortby <- "fwa_stream_networks_label_id"
+    sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
                                  offset = 10000,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  limit = 2,
                                  sortby = sortby
     )
@@ -415,6 +440,7 @@ httptest::with_mock_api({
                                   offset = 10001,
                                   base_url = base_url,
                                   path = path,
+                                  nocache = 'true',
                                   limit = 1,
                                   sortby = sortby
     )
@@ -422,8 +448,8 @@ httptest::with_mock_api({
     expect_s3_class(x2, "sf")
 
     expect_true(identical(
-      x2$fwa_stream_networks_label_id,
-      x$fwa_stream_networks_label_id[2]
+      x2$named_streams_id,
+      x$named_streams_id[2]
     ))
   })
 
@@ -435,6 +461,7 @@ httptest::with_mock_api({
     x <- pgf_collection_features(collection_id,
                                  base_url = base_url,
                                  path = path,
+                                 nocache = 'true',
                                  offset = 99999, limit = 1
     )
     expect_s3_class(x, "sf")
@@ -446,13 +473,12 @@ httptest::with_mock_api({
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                          base_url = base_url,
-                                          path = path,
-                                          offset = 100000, limit = 1
+                                 base_url = base_url,
+                                 path = path,
+                                 nocache = 'true',
+                                 offset = 100000, limit = 1
     )
     expect_s3_class(x, "sf")
   })
-
-
 })
 

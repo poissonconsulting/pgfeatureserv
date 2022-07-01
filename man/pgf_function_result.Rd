@@ -16,6 +16,7 @@ pgf_function_result(
   properties = NULL,
   precision = NULL,
   transform = NULL,
+  nocache = NULL,
   user = gh_user(),
   verbose = FALSE,
   response = FALSE
@@ -53,6 +54,9 @@ If NULL (default), all columns are retained.}
 \item{transform}{A character vector with the name of the
 \href{https://github.com/CrunchyData/pg_featureserv/blob/master/config/pg_featureserv.toml.example#L29}{\emph{valid transform}}
 function followed by the parameter values (e.g. c("ST_Simplify", 100)).}
+
+\item{nocache}{A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.}
 
 \item{user}{A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.}

@@ -7,6 +7,7 @@
 pgf_functions(
   base_url,
   path,
+  nocache = NULL,
   user = gh_user(),
   verbose = FALSE,
   response = FALSE
@@ -16,6 +17,9 @@ pgf_functions(
 \item{base_url}{A character string of the base URL.}
 
 \item{path}{A character string of the path or endpoint.}
+
+\item{nocache}{A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.}
 
 \item{user}{A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.}

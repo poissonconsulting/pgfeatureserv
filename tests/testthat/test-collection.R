@@ -1,4 +1,4 @@
-httptest::with_mock_api({
+httptest::with_mock_dir("c", {
   test_that("collection properties works ", {
     collection_id <- "whse_basemapping.fwa_named_streams"
     base_url <- "https://features.hillcrestgeo.ca/"
@@ -6,7 +6,8 @@ httptest::with_mock_api({
 
     x <- pgf_collection_properties(collection_id,
                                    base_url = base_url,
-                                   path = path
+                                   path = path,
+                                   nocache = 'true'
     )
     expect_s3_class(x, "tbl_df")
     expect_identical(nrow(x), 5L)
@@ -20,7 +21,8 @@ httptest::with_mock_api({
 
     x <- pgf_collection_description(collection_id,
                                     base_url = base_url,
-                                    path = path
+                                    path = path,
+                                    nocache = 'true'
     )
     expect_type(x, "character")
     expect_length(x, 1L)
@@ -33,7 +35,8 @@ httptest::with_mock_api({
 
     x <- pgf_collection_crs(collection_id,
                             base_url = base_url,
-                            path = path
+                            path = path,
+                            nocache = 'true'
     )
     expect_type(x, "character")
     expect_length(x, 1L)
@@ -46,7 +49,8 @@ httptest::with_mock_api({
 
     x <- pgf_collection_bbox(collection_id,
                              base_url = base_url,
-                             path = path
+                             path = path,
+                             nocache = 'true'
     )
     expect_type(x, "double")
     expect_length(x, 4L)
@@ -59,7 +63,8 @@ httptest::with_mock_api({
 
     x <- pgf_collection_geometry_type(collection_id,
                                       base_url = base_url,
-                                      path = path
+                                      path = path,
+                                      nocache = 'true'
     )
     expect_type(x, "character")
     expect_length(x, 1L)

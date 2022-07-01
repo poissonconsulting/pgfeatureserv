@@ -23,7 +23,7 @@ pgf_collection_features <- function(collection_id,
                                     precision = NULL,
                                     transform = NULL,
                                     groupby = NULL,
-                                    nocache = FALSE,
+                                    nocache = NULL,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
@@ -41,7 +41,7 @@ pgf_collection_features <- function(collection_id,
             vld_whole_number(precision) & vld_gt(precision, 0))
   chk_null_or(groupby, vld = vld_string)
   chk_null_or(transform, vld = vld_character)
-  chk_flag(nocache)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_flag(verbose)
   chk_flag(response)
 

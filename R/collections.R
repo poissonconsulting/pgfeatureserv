@@ -14,14 +14,14 @@
 #' }
 pgf_collections <- function(base_url,
                             path,
-                            nocache = FALSE,
+                            nocache = NULL,
                             user = gh_user(),
                             verbose = FALSE,
                             response = FALSE) {
   chk_string(base_url)
   chk_string(path)
   chk_string(user)
-  chk_flag(nocache)
+  chk_subset(nocache, c('true', 'false'))
   chk_flag(verbose)
   chk_flag(response)
 

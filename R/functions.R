@@ -16,13 +16,13 @@
 #' }
 pgf_functions <- function(base_url,
                           path,
-                          nocache = FALSE,
+                          nocache = NULL,
                           user = gh_user(),
                           verbose = FALSE,
                           response = FALSE) {
   chk_string(base_url)
   chk_string(path)
-  chk_flag(nocache)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_string(user)
   chk_flag(verbose)
   chk_flag(response)

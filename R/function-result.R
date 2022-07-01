@@ -34,7 +34,7 @@ pgf_function_result <- function(function_id,
                          properties = NULL,
                          precision = NULL,
                          transform = NULL,
-                         nocache = FALSE,
+                         nocache = NULL,
                          user = gh_user(),
                          verbose = FALSE,
                          response = FALSE) {
@@ -51,7 +51,7 @@ pgf_function_result <- function(function_id,
   chkor_vld(vld_null(precision),
             vld_whole_number(precision) & vld_gt(precision, 0))
   chk_null_or(transform, vld = vld_character)
-  chk_flag(nocache)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_flag(verbose)
   chk_flag(response)
 

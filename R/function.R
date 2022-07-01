@@ -2,7 +2,7 @@ pgf_function <- function(function_id,
                          base_url,
                          path,
                          table,
-                         nocache = FALSE,
+                         nocache = NULL,
                          tibble = TRUE,
                          user = gh_user(),
                          verbose = FALSE,
@@ -10,7 +10,7 @@ pgf_function <- function(function_id,
   chk_string(function_id)
   chk_string(base_url)
   chk_string(path)
-  chk_flag(nocache)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_string(user)
   chk_flag(verbose)
   chk_flag(response)
@@ -53,7 +53,7 @@ pgf_function <- function(function_id,
 pgf_function_parameters <- function(function_id,
                          base_url,
                           path,
-                         nocache = FALSE,
+                         nocache = NULL,
                           user = gh_user(),
                           verbose = FALSE,
                           response = FALSE) {
@@ -89,7 +89,7 @@ pgf_function_parameters <- function(function_id,
 pgf_function_properties <- function(function_id,
                                     base_url,
                                     path,
-                                    nocache = FALSE,
+                                    nocache = NULL,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
@@ -125,7 +125,7 @@ pgf_function_properties <- function(function_id,
 pgf_function_description <- function(function_id,
                                     base_url,
                                     path,
-                                    nocache = FALSE,
+                                    nocache = NULL,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {

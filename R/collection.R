@@ -2,7 +2,7 @@ pgf_collection <- function(collection_id,
                            base_url,
                            path,
                            table,
-                           nocache = FALSE,
+                           nocache = NULL,
                            tibble = TRUE,
                            user = gh_user(),
                            verbose = FALSE,
@@ -10,7 +10,7 @@ pgf_collection <- function(collection_id,
   chk_string(collection_id)
   chk_string(base_url)
   chk_string(path)
-  chk_flag(nocache)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_string(user)
   chk_flag(verbose)
   chk_flag(response)
@@ -53,7 +53,7 @@ pgf_collection <- function(collection_id,
 pgf_collection_properties <- function(collection_id,
                                       base_url,
                                       path,
-                                      nocache = FALSE,
+                                      nocache = NULL,
                                       user = gh_user(),
                                       verbose = FALSE,
                                       response = FALSE) {
@@ -89,7 +89,7 @@ pgf_collection_properties <- function(collection_id,
 pgf_collection_description <- function(collection_id,
                                        base_url,
                                        path,
-                                       nocache = nocache,
+                                       nocache = NULL,
                                        user = gh_user(),
                                        verbose = FALSE,
                                        response = FALSE) {
@@ -126,7 +126,7 @@ pgf_collection_description <- function(collection_id,
 pgf_collection_crs <- function(collection_id,
                                base_url,
                                path,
-                               nocache = FALSE,
+                               nocache = NULL,
                                user = gh_user(),
                                verbose = FALSE,
                                response = FALSE) {
@@ -164,7 +164,7 @@ pgf_collection_crs <- function(collection_id,
 pgf_collection_bbox <- function(collection_id,
                                 base_url,
                                 path,
-                                nocache = nocache,
+                                nocache = NULL,
                                 user = gh_user(),
                                 verbose = FALSE,
                                 response = FALSE) {
@@ -202,7 +202,7 @@ pgf_collection_bbox <- function(collection_id,
 pgf_collection_geometry_type <- function(collection_id,
                                          base_url,
                                          path,
-                                         nocache = FALSE,
+                                         nocache = NULL,
                                          user = gh_user(),
                                          verbose = FALSE,
                                          response = FALSE) {

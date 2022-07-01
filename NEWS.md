@@ -2,7 +2,7 @@
 
 # pgfeatureserv 0.0.0.9002 (2022-07-01)
 
-- Same as previous version.
+- Add nocache query option. Default gives unchanged behaviour.
 
 
 # pgfeatureserv 0.0.0.9001 (2022-01-17)

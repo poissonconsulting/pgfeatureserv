@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pgfeatureserv</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9002</span>
       </span>
     </div>
 
@@ -47,69 +47,98 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">pgf_function_result</span><span class="op">(</span>
-  <span class="va">function_id</span>,
-  <span class="va">base_url</span>,
-  <span class="va">path</span>,
-  <span class="va">parameters</span>,
-  limit <span class="op">=</span> <span class="fl">10000</span>,
-  offset <span class="op">=</span> <span class="fl">0</span>,
-  sortby <span class="op">=</span> <span class="cn">NULL</span>,
-  bbox <span class="op">=</span> <span class="cn">NULL</span>,
-  properties <span class="op">=</span> <span class="cn">NULL</span>,
-  precision <span class="op">=</span> <span class="cn">NULL</span>,
-  transform <span class="op">=</span> <span class="cn">NULL</span>,
-  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  response <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pgf_function_result</span><span class="op">(</span></span>
+<span>  <span class="va">function_id</span>,</span>
+<span>  <span class="va">base_url</span>,</span>
+<span>  <span class="va">path</span>,</span>
+<span>  <span class="va">parameters</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">10000</span>,</span>
+<span>  offset <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  sortby <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  bbox <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  properties <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  precision <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  transform <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  response <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>function_id</dt>
 <dd><p>A character string of the function id.</p></dd>
+
+
 <dt>base_url</dt>
 <dd><p>A character string of the base URL.</p></dd>
+
+
 <dt>path</dt>
 <dd><p>A character string of the path or endpoint.</p></dd>
+
+
 <dt>parameters</dt>
 <dd><p>A named list of the parameters and values for a
 specific function.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>A positive whole number that limits the number of
 features in the response.</p></dd>
+
+
 <dt>offset</dt>
 <dd><p>A positive whole number that starts the response at an offset.</p></dd>
+
+
 <dt>sortby</dt>
 <dd><p>A string that sorts the response items by a property.
 Default is ascending but property name can be prepended with
 '-' to indicate descending.</p></dd>
+
+
 <dt>bbox</dt>
 <dd><p>A vector of four numbers indicating bounding box in lon/lat
 (e.g. <code>c(minLon, minLat, maxLon, maxLat)</code>) that features in response
 must intersect.</p></dd>
+
+
 <dt>properties</dt>
 <dd><p>A vector of strings of the column names to include.
 If NULL (default), all columns are retained.</p></dd>
+
+
 <dt>precision</dt>
 <dd><p>A positive whole number indicating precision
 (i.e., number of decimal places) of GeoJSON coordinates.</p></dd>
+
+
 <dt>transform</dt>
 <dd><p>A character vector with the name of the
 <a href="https://github.com/CrunchyData/pg_featureserv/blob/master/config/pg_featureserv.toml.example#L29" class="external-link"><em>valid transform</em></a>
 function followed by the parameter values (e.g. c("ST_Simplify", 100)).</p></dd>
+
+
 <dt>user</dt>
 <dd><p>A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>A flag indicating whether to provide verbose GET response.</p></dd>
+
+
 <dt>response</dt>
 <dd><p>A flag indicating whether to return the raw response object.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A sf object.</p>
+    
+
+<p>A sf object.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -122,22 +151,22 @@ the server your are querying to contact you in case of misuse.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">function_id</span> <span class="op">&lt;-</span> <span class="st">"fwa_locatealong"</span></span>
-<span class="r-in"><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://features.hillcrestgeo.ca/"</span></span>
-<span class="r-in"><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">parameters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">  blue_line_key <span class="op">=</span> <span class="fl">356308001</span>,</span>
-<span class="r-in">  downstream_route_measure <span class="op">=</span> <span class="fl">0</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="fu">pgf_function_result</span><span class="op">(</span><span class="va">function_id</span>,</span>
-<span class="r-in">  base_url <span class="op">=</span> <span class="va">base_url</span>,</span>
-<span class="r-in">  path <span class="op">=</span> <span class="va">path</span>,</span>
-<span class="r-in">  parameters <span class="op">=</span> <span class="va">parameters</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">function_id</span> <span class="op">&lt;-</span> <span class="st">"fwa_locatealong"</span></span></span>
+<span class="r-in"><span><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://features.hillcrestgeo.ca/"</span></span></span>
+<span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">parameters</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  blue_line_key <span class="op">=</span> <span class="fl">356308001</span>,</span></span>
+<span class="r-in"><span>  downstream_route_measure <span class="op">=</span> <span class="fl">0</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">pgf_function_result</span><span class="op">(</span><span class="va">function_id</span>,</span></span>
+<span class="r-in"><span>  base_url <span class="op">=</span> <span class="va">base_url</span>,</span></span>
+<span class="r-in"><span>  path <span class="op">=</span> <span class="va">path</span>,</span></span>
+<span class="r-in"><span>  parameters <span class="op">=</span> <span class="va">parameters</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -152,7 +181,7 @@ the server your are querying to contact you in case of misuse.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

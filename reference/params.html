@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pgfeatureserv</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9002</span>
       </span>
     </div>
 
@@ -51,58 +51,95 @@
     <h2>Arguments</h2>
     <dl><dt>...</dt>
 <dd><p>Unused parameters.</p></dd>
+
+
 <dt>response</dt>
 <dd><p>A flag indicating whether to return the raw response object.</p></dd>
+
+
 <dt>base_url</dt>
 <dd><p>A character string of the base URL.</p></dd>
+
+
 <dt>path</dt>
 <dd><p>A character string of the path or endpoint.</p></dd>
+
+
 <dt>user</dt>
 <dd><p>A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>A flag indicating whether to provide verbose GET response.</p></dd>
+
+
 <dt>collection_id</dt>
 <dd><p>A character string of the collection id.</p></dd>
+
+
 <dt>feature_id</dt>
 <dd><p>A positive whole number of the feature id.</p></dd>
+
+
 <dt>function_id</dt>
 <dd><p>A character string of the function id.</p></dd>
+
+
 <dt>limit</dt>
 <dd><p>A positive whole number that limits the number of
 features in the response.</p></dd>
+
+
 <dt>offset</dt>
 <dd><p>A positive whole number that starts the response at an offset.</p></dd>
+
+
 <dt>sortby</dt>
 <dd><p>A string that sorts the response items by a property.
 Default is ascending but property name can be prepended with
 '-' to indicate descending.</p></dd>
+
+
 <dt>bbox</dt>
 <dd><p>A vector of four numbers indicating bounding box in lon/lat
 (e.g. <code>c(minLon, minLat, maxLon, maxLat)</code>) that features in response
 must intersect.</p></dd>
+
+
 <dt>filter</dt>
 <dd><p>A named vector or list of the filter(s) to apply,
 where the list names correspond to column names and the
 list values correspond to the desired
 value, e.g. <code>list(gnis_name = "Sangan River")</code>.</p></dd>
+
+
 <dt>properties</dt>
 <dd><p>A vector of strings of the column names to include.
 If NULL (default), all columns are retained.</p></dd>
+
+
 <dt>transform</dt>
 <dd><p>A character vector with the name of the
 <a href="https://github.com/CrunchyData/pg_featureserv/blob/master/config/pg_featureserv.toml.example#L29" class="external-link"><em>valid transform</em></a>
 function followed by the parameter values (e.g. c("ST_Simplify", 100)).</p></dd>
+
+
 <dt>precision</dt>
 <dd><p>A positive whole number indicating precision
 (i.e., number of decimal places) of GeoJSON coordinates.</p></dd>
+
+
 <dt>groupby</dt>
 <dd><p>A string of the property name (i.e., column name) to group
 response features by. This would typically be used with an aggregate
 transform function.</p></dd>
+
+
 <dt>parameters</dt>
 <dd><p>A named list of the parameters and values for a
 specific function.</p></dd>
+
 </dl></div>
 
   </div>
@@ -117,7 +154,7 @@ specific function.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

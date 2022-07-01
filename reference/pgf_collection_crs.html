@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pgfeatureserv</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.0.0.9002</span>
       </span>
     </div>
 
@@ -47,35 +47,48 @@
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">pgf_collection_crs</span><span class="op">(</span>
-  <span class="va">collection_id</span>,
-  <span class="va">base_url</span>,
-  <span class="va">path</span>,
-  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,
-  verbose <span class="op">=</span> <span class="cn">FALSE</span>,
-  response <span class="op">=</span> <span class="cn">FALSE</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">pgf_collection_crs</span><span class="op">(</span></span>
+<span>  <span class="va">collection_id</span>,</span>
+<span>  <span class="va">base_url</span>,</span>
+<span>  <span class="va">path</span>,</span>
+<span>  user <span class="op">=</span> <span class="fu">gh_user</span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  verbose <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  response <span class="op">=</span> <span class="cn">FALSE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
     <h2>Arguments</h2>
     <dl><dt>collection_id</dt>
 <dd><p>A character string of the collection id.</p></dd>
+
+
 <dt>base_url</dt>
 <dd><p>A character string of the base URL.</p></dd>
+
+
 <dt>path</dt>
 <dd><p>A character string of the path or endpoint.</p></dd>
+
+
 <dt>user</dt>
 <dd><p>A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.</p></dd>
+
+
 <dt>verbose</dt>
 <dd><p>A flag indicating whether to provide verbose GET response.</p></dd>
+
+
 <dt>response</dt>
 <dd><p>A flag indicating whether to return the raw response object.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>A string.</p>
+    
+
+<p>A string.</p>
     </div>
     <div id="see-also">
     <h2>See also</h2>
@@ -91,14 +104,14 @@ the server your are querying to contact you in case of misuse.</p></dd>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://features.hillcrestgeo.ca/"</span></span>
-<span class="r-in"><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span></span>
-<span class="r-in"><span class="va">collection_id</span> <span class="op">&lt;-</span> <span class="st">"whse_basemapping.fwa_named_streams"</span></span>
-<span class="r-in"><span class="fu">pgf_collection_crs</span><span class="op">(</span>,</span>
-<span class="r-in">  collection_id <span class="op">=</span> <span class="va">collection_id</span>, base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span></span>
-<span class="r-in"><span class="op">)</span></span>
-<span class="r-in"><span class="op">}</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="va">base_url</span> <span class="op">&lt;-</span> <span class="st">"https://features.hillcrestgeo.ca/"</span></span></span>
+<span class="r-in"><span><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span></span></span>
+<span class="r-in"><span><span class="va">collection_id</span> <span class="op">&lt;-</span> <span class="st">"whse_basemapping.fwa_named_streams"</span></span></span>
+<span class="r-in"><span><span class="fu">pgf_collection_crs</span><span class="op">(</span>,</span></span>
+<span class="r-in"><span>  collection_id <span class="op">=</span> <span class="va">collection_id</span>, base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -113,7 +126,7 @@ the server your are querying to contact you in case of misuse.</p></dd>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.9000.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.5.9000.</p>
 </div>
 
       </footer></div>

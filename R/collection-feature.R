@@ -17,6 +17,7 @@ pgf_collection_feature <- function(collection_id,
                                     path,
                                     properties = NULL,
                                     transform = NULL,
+                                   nocache = NULL,
                                     user = gh_user(),
                                     verbose = FALSE,
                                     response = FALSE) {
@@ -25,6 +26,7 @@ pgf_collection_feature <- function(collection_id,
   chk_gte(feature_id)
   chk_null_or(properties, vld = vld_character)
   chk_null_or(transform, vld = vld_character)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_flag(verbose)
   chk_flag(response)
 
@@ -33,7 +35,8 @@ pgf_collection_feature <- function(collection_id,
 
   query <- list(
       properties = properties,
-      transform = transform
+      transform = transform,
+      nocache = nocache
     )
 
   path <- file.path(path, "collections", collection_id, "items", feature_id)

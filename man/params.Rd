@@ -28,6 +28,9 @@ features in the response.}
 
 \item{offset}{A positive whole number that starts the response at an offset.}
 
+\item{nocache}{A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.}
+
 \item{sortby}{A string that sorts the response items by a property.
 Default is ascending but property name can be prepended with
 '-' to indicate descending.}

@@ -16,17 +16,22 @@
 #' }
 pgf_functions <- function(base_url,
                           path,
+                          nocache = NULL,
                           user = gh_user(),
                           verbose = FALSE,
                           response = FALSE) {
   chk_string(base_url)
   chk_string(path)
+  chk_null_or(nocache, vld = vld_charflag)
   chk_string(user)
   chk_flag(verbose)
   chk_flag(response)
 
   path <- file.path(path, "functions")
-  url <- modify_url(url = base_url, path = path, query = NULL)
+  query <- list(
+    nocache = nocache
+  )
+  url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
     url = url, user = user, verbose = verbose

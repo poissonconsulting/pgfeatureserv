@@ -1,10 +1,11 @@
-httptest::with_mock_api({
+httptest::with_mock_dir("cs", {
   test_that("collections information works", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
     x <- pgf_collections(
       base_url = base_url,
-      path = path
+      path = path,
+      nocache = 'true'
     )
     expect_s3_class(x, "tbl_df")
     expect_identical(names(x), c(
@@ -16,7 +17,8 @@ httptest::with_mock_api({
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
     x <- pgf_collections(base_url = base_url,
-                         path = path)
+                         path = path,
+                         nocache = 'true')
     expect_snapshot_data(x$id, "collections")
   })
 
@@ -27,7 +29,8 @@ httptest::with_mock_api({
     x <- pgf_collections(
       base_url = base_url,
       path = path,
-      response = TRUE
+      response = TRUE,
+      nocache = 'true'
     )
 
     expect_s3_class(x, "pgfs_request")

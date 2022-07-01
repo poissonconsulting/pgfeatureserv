@@ -17,6 +17,7 @@ pgf_collection_features(
   precision = NULL,
   transform = NULL,
   groupby = NULL,
+  nocache = NULL,
   user = gh_user(),
   verbose = FALSE,
   response = FALSE
@@ -60,6 +61,9 @@ function followed by the parameter values (e.g. c("ST_Simplify", 100)).}
 \item{groupby}{A string of the property name (i.e., column name) to group
 response features by. This would typically be used with an aggregate
 transform function.}
+
+\item{nocache}{A character string indicating whether to cache results or not.
+Possible values include 'true' or 'false' or NULL.}
 
 \item{user}{A character string of the user. This allows whoever is running
 the server your are querying to contact you in case of misuse.}

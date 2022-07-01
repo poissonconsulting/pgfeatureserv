@@ -1,4 +1,4 @@
-httptest::with_mock_api({
+httptest::with_mock_dir("f", {
   test_that("function properties works", {
     function_id <- "fwa_locatealong"
     base_url <- "https://features.hillcrestgeo.ca/"
@@ -6,7 +6,8 @@ httptest::with_mock_api({
 
     x <- pgf_function_properties(function_id,
                                  base_url = base_url,
-                                 path = path
+                                 path = path,
+                                 nocache = 'true'
     )
 
     expect_s3_class(x, "tbl_df")
@@ -21,7 +22,8 @@ httptest::with_mock_api({
 
     x <- pgf_function_parameters(function_id,
                                  base_url = base_url,
-                                 path = path
+                                 path = path,
+                                 nocache = 'true'
     )
 
     expect_s3_class(x, "tbl_df")
@@ -36,7 +38,8 @@ httptest::with_mock_api({
 
     x <- pgf_function_description(function_id,
                                   base_url = base_url,
-                                  path = path
+                                  path = path,
+                                  nocache = 'true'
     )
 
     expect_type(x, "character")

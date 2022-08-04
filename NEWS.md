@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# pgfeatureserv 0.0.0.9003 (2022-08-04)
+
+- Same as previous version.
+
+
 # pgfeatureserv 0.0.0.9002 (2022-07-01)
 
 - Add nocache query option. Default gives unchanged behaviour.

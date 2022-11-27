@@ -62,6 +62,7 @@
 <div class="page-header"><h1 id="pgfeatureserv">pgfeatureserv<a class="anchor" aria-label="anchor" href="#pgfeatureserv"></a>
 </h1></div>
 <!-- badges: start -->
+
 <p><code>pgfeatureserv</code> is an R client for <a href="https://github.com/CrunchyData/pg_featureserv" class="external-link">pg_featureserv</a>, a RESTful web service that provides access to spatial data stored in PostGIS tables, as well as spatial processing capability based on PostGIS spatial functions.</p>
 <p>For more information on pg_featureserv:<br>
 - <a href="https://access.crunchydata.com/documentation/pg_featureserv/1.2.0/" class="external-link">User Guide</a><br>
@@ -114,7 +115,9 @@
 <li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_description.html" class="external-link"><code>pgf_function_description()</code></a></li>
 </ul>
 <p>Execute a spatial function and get result:</p>
-<ul><li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_result.html" class="external-link"><code>pgf_function_result()</code></a></li></ul>
+<ul>
+<li><a href="https://poissonconsulting.github.io/pgfeatureserv/reference/pgf_function_result.html" class="external-link"><code>pgf_function_result()</code></a></li>
+</ul>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -133,28 +136,27 @@
 <span><span class="va">path</span> <span class="op">&lt;-</span> <span class="st">"fwa"</span></span>
 <span><span class="va">collections</span> <span class="op">&lt;-</span> <span class="fu">pgfeatureserv</span><span class="fu">::</span><span class="fu"><a href="reference/pgf_collections.html">pgf_collections</a></span><span class="op">(</span>base_url <span class="op">=</span> <span class="va">base_url</span>, path <span class="op">=</span> <span class="va">path</span><span class="op">)</span></span>
 <span><span class="va">collections</span><span class="op">$</span><span class="va">id</span></span>
-<span><span class="co">#&gt;  [1] "hydrosheds.hybas_lev12_v1c"                      </span></span>
-<span><span class="co">#&gt;  [2] "usgs.wbdhu12"                                    </span></span>
-<span><span class="co">#&gt;  [3] "whse_basemapping.fwa_approx_borders"             </span></span>
-<span><span class="co">#&gt;  [4] "whse_basemapping.fwa_assessment_watersheds_poly" </span></span>
-<span><span class="co">#&gt;  [5] "whse_basemapping.fwa_basins_poly"                </span></span>
-<span><span class="co">#&gt;  [6] "whse_basemapping.fwa_bays_and_channels_poly"     </span></span>
-<span><span class="co">#&gt;  [7] "whse_basemapping.fwa_bc_boundary"                </span></span>
-<span><span class="co">#&gt;  [8] "whse_basemapping.fwa_coastlines_sp"              </span></span>
-<span><span class="co">#&gt;  [9] "whse_basemapping.fwa_glaciers_poly"              </span></span>
-<span><span class="co">#&gt; [10] "whse_basemapping.fwa_islands_poly"               </span></span>
-<span><span class="co">#&gt; [11] "whse_basemapping.fwa_lakes_poly"                 </span></span>
-<span><span class="co">#&gt; [12] "whse_basemapping.fwa_linear_boundaries_sp"       </span></span>
-<span><span class="co">#&gt; [13] "whse_basemapping.fwa_manmade_waterbodies_poly"   </span></span>
-<span><span class="co">#&gt; [14] "whse_basemapping.fwa_named_streams"              </span></span>
-<span><span class="co">#&gt; [15] "whse_basemapping.fwa_named_watersheds_poly"      </span></span>
-<span><span class="co">#&gt; [16] "whse_basemapping.fwa_obstructions_sp"            </span></span>
-<span><span class="co">#&gt; [17] "whse_basemapping.fwa_rivers_poly"                </span></span>
-<span><span class="co">#&gt; [18] "whse_basemapping.fwa_stream_networks_sp"         </span></span>
-<span><span class="co">#&gt; [19] "whse_basemapping.fwa_watershed_groups_poly"      </span></span>
-<span><span class="co">#&gt; [20] "whse_basemapping.fwa_watershed_groups_subdivided"</span></span>
-<span><span class="co">#&gt; [21] "whse_basemapping.fwa_watersheds_poly"            </span></span>
-<span><span class="co">#&gt; [22] "whse_basemapping.fwa_wetlands_poly"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [1] "fwapg.fwa_stream_networks_sp"                   </span></span>
+<span><span class="co">#&gt;  [2] "hydrosheds.hybas_lev12_v1c"                     </span></span>
+<span><span class="co">#&gt;  [3] "usgs.wbdhu12"                                   </span></span>
+<span><span class="co">#&gt;  [4] "whse_basemapping.fwa_approx_borders"            </span></span>
+<span><span class="co">#&gt;  [5] "whse_basemapping.fwa_assessment_watersheds_poly"</span></span>
+<span><span class="co">#&gt;  [6] "whse_basemapping.fwa_basins_poly"               </span></span>
+<span><span class="co">#&gt;  [7] "whse_basemapping.fwa_bays_and_channels_poly"    </span></span>
+<span><span class="co">#&gt;  [8] "whse_basemapping.fwa_bcboundary"                </span></span>
+<span><span class="co">#&gt;  [9] "whse_basemapping.fwa_coastlines_sp"             </span></span>
+<span><span class="co">#&gt; [10] "whse_basemapping.fwa_glaciers_poly"             </span></span>
+<span><span class="co">#&gt; [11] "whse_basemapping.fwa_islands_poly"              </span></span>
+<span><span class="co">#&gt; [12] "whse_basemapping.fwa_lakes_poly"                </span></span>
+<span><span class="co">#&gt; [13] "whse_basemapping.fwa_linear_boundaries_sp"      </span></span>
+<span><span class="co">#&gt; [14] "whse_basemapping.fwa_manmade_waterbodies_poly"  </span></span>
+<span><span class="co">#&gt; [15] "whse_basemapping.fwa_named_streams"             </span></span>
+<span><span class="co">#&gt; [16] "whse_basemapping.fwa_named_watersheds_poly"     </span></span>
+<span><span class="co">#&gt; [17] "whse_basemapping.fwa_obstructions_sp"           </span></span>
+<span><span class="co">#&gt; [18] "whse_basemapping.fwa_rivers_poly"               </span></span>
+<span><span class="co">#&gt; [19] "whse_basemapping.fwa_watershed_groups_poly"     </span></span>
+<span><span class="co">#&gt; [20] "whse_basemapping.fwa_watersheds_poly"           </span></span>
+<span><span class="co">#&gt; [21] "whse_basemapping.fwa_wetlands_poly"</span></span></code></pre></div>
 <p>Get Sangan River from the stream network collection:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">coll</span> <span class="op">&lt;-</span> <span class="st">"whse_basemapping.fwa_stream_networks_sp"</span></span>
@@ -166,11 +168,11 @@
 <span><span class="co">#&gt; # A data frame: 5 × 4</span></span>
 <span><span class="co">#&gt;   blue_line_key blue_line_key_50k downstream_route_measure edge_type</span></span>
 <span><span class="co">#&gt;           &lt;dbl&gt;             &lt;dbl&gt;                    &lt;dbl&gt;     &lt;dbl&gt;</span></span>
-<span><span class="co">#&gt; 1     360879896                11                    1266.      1000</span></span>
-<span><span class="co">#&gt; 2     360879896                11                    8744.      1000</span></span>
-<span><span class="co">#&gt; 3     360879896                11                    2319.      1000</span></span>
-<span><span class="co">#&gt; 4     360879896                11                       0       1250</span></span>
-<span><span class="co">#&gt; 5     360879896               130                   17516.      1050</span></span></code></pre></div>
+<span><span class="co">#&gt; 1     360879896                11                    7849.      1000</span></span>
+<span><span class="co">#&gt; 2     360879896                11                   10909.      1000</span></span>
+<span><span class="co">#&gt; 3     360879896               130                   16588.      1000</span></span>
+<span><span class="co">#&gt; 4     360879896                11                    4721.      1000</span></span>
+<span><span class="co">#&gt; 5     360879896                11                    3446.      1000</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
@@ -216,7 +218,7 @@
 <h2 data-toc-skip>Dev status</h2>
 <ul class="list-unstyled">
 <li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://github.com/poissonconsulting/pgfeatureserv/actions" class="external-link"><img src="https://github.com/poissonconsulting/pgfeatureserv/workflows/R-CMD-check/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://github.com/poissonconsulting/pgfeatureserv/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/poissonconsulting/pgfeatureserv/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
 <li><a href="https://app.codecov.io/gh/poissonconsulting/pgfeatureserv?branch=main" class="external-link"><img src="https://codecov.io/gh/poissonconsulting/pgfeatureserv/branch/main/graph/badge.svg" alt="Codecov test coverage"></a></li>
 <li><a href="https://opensource.org/licenses/MIT" class="external-link"><img src="https://img.shields.io/badge/License-MIT-green.svg" alt="License: MIT"></a></li>
 </ul>
@@ -233,7 +235,7 @@
 
 <div class="pkgdown">
   <p></p>
-<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.9000.</p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.6.</p>
 </div>
 
       </footer>

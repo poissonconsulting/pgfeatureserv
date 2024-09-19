@@ -1,0 +1,810 @@
+{
+    "links": [
+        {
+            "href": "h/collections",
+            "rel": "self",
+            "type": "application/json",
+            "title": "This document as JSON"
+        },
+        {
+            "href": "h/collections.html",
+            "rel": "alternate",
+            "type": "text/html",
+            "title": "This document as HTML"
+        }
+    ],
+    "collections": [
+        {
+            "id": "hydrosheds.hybas_lev12_v1c",
+            "title": "hydrosheds.hybas_lev12_v1c",
+            "description": "HydroBasins for North America from https://www.hydrosheds.org. See source for column documentation",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/hydrosheds.hybas_lev12_v1c",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/hydrosheds.hybas_lev12_v1c.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/hydrosheds.hybas_lev12_v1c/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "usgs.wbdhu12",
+            "title": "usgs.wbdhu12",
+            "description": "USGS National Watershed Boundary Dataset, HUC12 level. See https://prd-tnm.s3.amazonaws.com/StagedProducts/Hydrography/WBD/National/GDB/WBD_National_GDB.xml",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/usgs.wbdhu12",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/usgs.wbdhu12.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/usgs.wbdhu12/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_approx_borders",
+            "title": "whse_basemapping.fwa_approx_borders",
+            "description": "lines of latitude / longitude for 49n, 60n, -120w. these are used by fwapg for finding cross-border streams",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_approx_borders",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_approx_borders.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_approx_borders/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_assessment_watersheds_poly",
+            "title": "whse_basemapping.fwa_assessment_watersheds_poly",
+            "description": "Data for table whse_basemapping.fwa_assessment_watersheds_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_assessment_watersheds_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_assessment_watersheds_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_assessment_watersheds_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_basins_poly",
+            "title": "whse_basemapping.fwa_basins_poly",
+            "description": "Large BC waterhseds consisting of at least 2-3 watershed groups, used by fwapg for watershed pre-aggregation",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_basins_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_basins_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_basins_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_bays_and_channels_poly",
+            "title": "whse_basemapping.fwa_bays_and_channels_poly",
+            "description": "Data for table whse_basemapping.fwa_bays_and_channels_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bays_and_channels_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bays_and_channels_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bays_and_channels_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_bcboundary",
+            "title": "whse_basemapping.fwa_bcboundary",
+            "description": "Boundary of BC as defined by FWA - used by FWA_WatershedAtMeasure()",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bcboundary",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bcboundary.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_bcboundary/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_coastlines_sp",
+            "title": "whse_basemapping.fwa_coastlines_sp",
+            "description": "Data for table whse_basemapping.fwa_coastlines_sp",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_coastlines_sp",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_coastlines_sp.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_coastlines_sp/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_glaciers_poly",
+            "title": "whse_basemapping.fwa_glaciers_poly",
+            "description": "Data for table whse_basemapping.fwa_glaciers_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_glaciers_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_glaciers_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_glaciers_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_islands_poly",
+            "title": "whse_basemapping.fwa_islands_poly",
+            "description": "Data for table whse_basemapping.fwa_islands_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_islands_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_islands_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_islands_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_lakes_poly",
+            "title": "whse_basemapping.fwa_lakes_poly",
+            "description": "Data for table whse_basemapping.fwa_lakes_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_lakes_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_lakes_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_lakes_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_linear_boundaries_sp",
+            "title": "whse_basemapping.fwa_linear_boundaries_sp",
+            "description": "Data for table whse_basemapping.fwa_linear_boundaries_sp",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_linear_boundaries_sp",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_linear_boundaries_sp.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_linear_boundaries_sp/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_manmade_waterbodies_poly",
+            "title": "whse_basemapping.fwa_manmade_waterbodies_poly",
+            "description": "Data for table whse_basemapping.fwa_manmade_waterbodies_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_manmade_waterbodies_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_manmade_waterbodies_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_manmade_waterbodies_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_named_streams",
+            "title": "whse_basemapping.fwa_named_streams",
+            "description": "Named streams of BC, aggregated per watershed group and simplified using a 25m tolerance (primarily for mapping use)",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_streams",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_streams.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_streams/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_named_watersheds_poly",
+            "title": "whse_basemapping.fwa_named_watersheds_poly",
+            "description": "Data for table whse_basemapping.fwa_named_watersheds_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_watersheds_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_watersheds_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_named_watersheds_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_obstructions_sp",
+            "title": "whse_basemapping.fwa_obstructions_sp",
+            "description": "Data for table whse_basemapping.fwa_obstructions_sp",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_obstructions_sp",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_obstructions_sp.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_obstructions_sp/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_rivers_poly",
+            "title": "whse_basemapping.fwa_rivers_poly",
+            "description": "Data for table whse_basemapping.fwa_rivers_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_rivers_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_rivers_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_rivers_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_stream_networks_sp",
+            "title": "whse_basemapping.fwa_stream_networks_sp",
+            "description": "Data for table whse_basemapping.fwa_stream_networks_sp",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_stream_networks_sp",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_stream_networks_sp.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_stream_networks_sp/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_streams_vw",
+            "title": "whse_basemapping.fwa_streams_vw",
+            "description": "View of FWA stream networks and value-added attributes",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_streams_vw",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_streams_vw.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_streams_vw/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_watershed_groups_poly",
+            "title": "whse_basemapping.fwa_watershed_groups_poly",
+            "description": "Data for table whse_basemapping.fwa_watershed_groups_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watershed_groups_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watershed_groups_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watershed_groups_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_watersheds_poly",
+            "title": "whse_basemapping.fwa_watersheds_poly",
+            "description": "Data for table whse_basemapping.fwa_watersheds_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watersheds_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watersheds_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_watersheds_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "whse_basemapping.fwa_wetlands_poly",
+            "title": "whse_basemapping.fwa_wetlands_poly",
+            "description": "Data for table whse_basemapping.fwa_wetlands_poly",
+            "extent": {
+                "spatial": {
+                    "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+                    "bbox": [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]
+                }
+            },
+            "links": [
+                {
+                    "href": "h/collections/whse_basemapping.fwa_wetlands_poly",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_wetlands_poly.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/collections/whse_basemapping.fwa_wetlands_poly/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        }
+    ]
+}

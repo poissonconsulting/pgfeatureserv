@@ -51,8 +51,8 @@ pgf_collection_crs(,
 Other collections: 
 \code{\link{pgf_collection_bbox}()},
 \code{\link{pgf_collection_description}()},
-\code{\link{pgf_collection_features}()},
 \code{\link{pgf_collection_feature}()},
+\code{\link{pgf_collection_features}()},
 \code{\link{pgf_collection_geometry_type}()},
 \code{\link{pgf_collection_properties}()},
 \code{\link{pgf_collections}()}

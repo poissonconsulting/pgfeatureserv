@@ -1,0 +1,234 @@
+{
+    "links": [
+        {
+            "href": "h/functions",
+            "rel": "self",
+            "type": "application/json",
+            "title": "This document as JSON"
+        },
+        {
+            "href": "h/functions.html",
+            "rel": "alternate",
+            "type": "text/html",
+            "title": "This document as HTML"
+        }
+    ],
+    "functions": [
+        {
+            "id": "postgisftw.fwa_downstreamtrace",
+            "description": "Return stream network downstream of provided location",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_downstreamtrace",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_downstreamtrace.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_downstreamtrace/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_indexpoint",
+            "description": "Provided a point (as x,y coordinates and EPSG code), return the point indexed (snapped) to nearest stream(s) within specified tolerance (m)",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_indexpoint",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_indexpoint.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_indexpoint/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_locatealong",
+            "description": "Return a point on the stream network based on the location provided by blue_line_key and downstream_route_measure",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealong",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealong.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealong/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_locatealonginterval",
+            "description": "Return a table (index, measure, geom), representing points along a stream between specified locations at specified interval",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealonginterval",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealonginterval.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_locatealonginterval/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_upstreamtrace",
+            "description": "Return stream network upstream of provided location",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_upstreamtrace",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_upstreamtrace.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_upstreamtrace/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_watershedatmeasure",
+            "description": "Provided a location as blue_line_key and downstream_route_measure, return the entire watershed boundary upstream of the location",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedatmeasure",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedatmeasure.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedatmeasure/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_watershedhex",
+            "description": "Provided a location as blue_line_key and downstream_route_measure, return a 25m hexagon grid covering first order watershed in which location lies",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedhex",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedhex.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedhex/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.fwa_watershedstream",
+            "description": "Provided a location as blue_line_key and downstream_route_measure, return stream segments upstream, within the same first order watershed.",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedstream",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedstream.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.fwa_watershedstream/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        },
+        {
+            "id": "postgisftw.hydroshed",
+            "description": "Return aggregated boundary of all hydroshed polygons upstream of the provided location",
+            "links": [
+                {
+                    "href": "h/functions/postgisftw.hydroshed",
+                    "rel": "self",
+                    "type": "application/json",
+                    "title": "Metadata as JSON"
+                },
+                {
+                    "href": "h/functions/postgisftw.hydroshed.html",
+                    "rel": "alternate",
+                    "type": "text/html",
+                    "title": "Metadata as HTML"
+                },
+                {
+                    "href": "h/functions/postgisftw.hydroshed/items",
+                    "rel": "items",
+                    "type": "application/geo+json",
+                    "title": "Features as GeoJSON"
+                }
+            ]
+        }
+    ]
+}

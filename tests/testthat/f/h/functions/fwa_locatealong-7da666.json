@@ -1,0 +1,43 @@
+{
+    "id": "postgisftw.fwa_locatealong",
+    "description": "Return a point on the stream network based on the location provided by blue_line_key and downstream_route_measure",
+    "parameters": [
+        {
+            "name": "blue_line_key",
+            "type": "int4",
+            "description": ""
+        },
+        {
+            "name": "downstream_route_measure",
+            "type": "float8",
+            "description": ""
+        }
+    ],
+    "properties": [
+        {
+            "name": "geom",
+            "type": "geometry",
+            "description": ""
+        }
+    ],
+    "links": [
+        {
+            "href": "h/functions/postgisftw.fwa_locatealong",
+            "rel": "self",
+            "type": "application/json",
+            "title": "This document as JSON"
+        },
+        {
+            "href": "h/functions/postgisftw.fwa_locatealong.html",
+            "rel": "alternate",
+            "type": "text/html",
+            "title": "This document as HTML"
+        },
+        {
+            "href": "h/functions/postgisftw.fwa_locatealong/items",
+            "rel": "items",
+            "type": "application/geo+json",
+            "title": "Features as GeoJSON"
+        }
+    ]
+}

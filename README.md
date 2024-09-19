@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/poissonconsulting/pgfeatureserv/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/pgfeatureserv/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/pgfeatureserv/branch/main/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/pgfeatureserv?branch=main)
+coverage](https://codecov.io/gh/poissonconsulting/pgfeatureserv/graph/badge.svg)](https://app.codecov.io/gh/poissonconsulting/pgfeatureserv)
 [![License:
 MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
@@ -75,27 +75,28 @@ base_url <- "https://features.hillcrestgeo.ca/"
 path <- "fwa"
 collections <- pgfeatureserv::pgf_collections(base_url = base_url, path = path)
 collections$id
-#>  [1] "fwapg.fwa_stream_networks_sp"                   
-#>  [2] "hydrosheds.hybas_lev12_v1c"                     
-#>  [3] "usgs.wbdhu12"                                   
-#>  [4] "whse_basemapping.fwa_approx_borders"            
-#>  [5] "whse_basemapping.fwa_assessment_watersheds_poly"
-#>  [6] "whse_basemapping.fwa_basins_poly"               
-#>  [7] "whse_basemapping.fwa_bays_and_channels_poly"    
-#>  [8] "whse_basemapping.fwa_bcboundary"                
-#>  [9] "whse_basemapping.fwa_coastlines_sp"             
-#> [10] "whse_basemapping.fwa_glaciers_poly"             
-#> [11] "whse_basemapping.fwa_islands_poly"              
-#> [12] "whse_basemapping.fwa_lakes_poly"                
-#> [13] "whse_basemapping.fwa_linear_boundaries_sp"      
-#> [14] "whse_basemapping.fwa_manmade_waterbodies_poly"  
-#> [15] "whse_basemapping.fwa_named_streams"             
-#> [16] "whse_basemapping.fwa_named_watersheds_poly"     
-#> [17] "whse_basemapping.fwa_obstructions_sp"           
-#> [18] "whse_basemapping.fwa_rivers_poly"               
-#> [19] "whse_basemapping.fwa_watershed_groups_poly"     
-#> [20] "whse_basemapping.fwa_watersheds_poly"           
-#> [21] "whse_basemapping.fwa_wetlands_poly"
+#>  [1] "hydrosheds.hybas_lev12_v1c"                     
+#>  [2] "usgs.wbdhu12"                                   
+#>  [3] "whse_basemapping.fwa_approx_borders"            
+#>  [4] "whse_basemapping.fwa_assessment_watersheds_poly"
+#>  [5] "whse_basemapping.fwa_basins_poly"               
+#>  [6] "whse_basemapping.fwa_bays_and_channels_poly"    
+#>  [7] "whse_basemapping.fwa_bcboundary"                
+#>  [8] "whse_basemapping.fwa_coastlines_sp"             
+#>  [9] "whse_basemapping.fwa_glaciers_poly"             
+#> [10] "whse_basemapping.fwa_islands_poly"              
+#> [11] "whse_basemapping.fwa_lakes_poly"                
+#> [12] "whse_basemapping.fwa_linear_boundaries_sp"      
+#> [13] "whse_basemapping.fwa_manmade_waterbodies_poly"  
+#> [14] "whse_basemapping.fwa_named_streams"             
+#> [15] "whse_basemapping.fwa_named_watersheds_poly"     
+#> [16] "whse_basemapping.fwa_obstructions_sp"           
+#> [17] "whse_basemapping.fwa_rivers_poly"               
+#> [18] "whse_basemapping.fwa_stream_networks_sp"        
+#> [19] "whse_basemapping.fwa_streams_vw"                
+#> [20] "whse_basemapping.fwa_watershed_groups_poly"     
+#> [21] "whse_basemapping.fwa_watersheds_poly"           
+#> [22] "whse_basemapping.fwa_wetlands_poly"
 ```
 
 Get Sangan River from the stream network collection:
@@ -110,11 +111,11 @@ river[1:5, 1:4]
 #> # A data frame: 5 × 4
 #>   blue_line_key blue_line_key_50k downstream_route_measure edge_type
 #>           <dbl>             <dbl>                    <dbl>     <dbl>
-#> 1     360879896                11                    7849.      1000
-#> 2     360879896                11                   10909.      1000
-#> 3     360879896               130                   16588.      1000
-#> 4     360879896                11                    4721.      1000
-#> 5     360879896                11                    3446.      1000
+#> 1     360879896               130                   16588.      1000
+#> 2     360879896                11                    1266.      1000
+#> 3     360879896               130                   17516.      1050
+#> 4     360879896                11                   13068.      1000
+#> 5     360879896                11                    6808.      1000
 ```
 
 ## Code of Conduct

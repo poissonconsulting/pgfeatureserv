@@ -1,6 +1,6 @@
 Package: pgfeatureserv
 Title: Client for pg_featureserv RESTful web service
-Version: 0.0.0.9003
+Version: 0.0.0.9005
 Authors@R: 
     person("Seb", "Dalgarno", , "seb.dalgarno@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3658-4517"))

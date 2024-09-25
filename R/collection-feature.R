@@ -13,14 +13,16 @@
 #' }
 pgf_collection_feature <- function(collection_id,
                                    feature_id,
-                                    base_url,
-                                    path,
-                                    properties = NULL,
-                                    transform = NULL,
+                                   base_url,
+                                   path,
+                                   properties = NULL,
+                                   transform = NULL,
                                    nocache = NULL,
-                                    user = gh_user(),
-                                    verbose = FALSE,
-                                    response = FALSE) {
+                                   user = gh_user(),
+                                   verbose = FALSE,
+                                   response = FALSE) {
+  lifecycle::deprecate_stop("0.0.0.9005", "pgf_collection_feature()")
+
   chk_string(collection_id)
   chk_whole_number(feature_id)
   chk_gte(feature_id)
@@ -34,10 +36,10 @@ pgf_collection_feature <- function(collection_id,
   transform <- format_parameter(transform)
 
   query <- list(
-      properties = properties,
-      transform = transform,
-      nocache = nocache
-    )
+    properties = properties,
+    transform = transform,
+    nocache = nocache
+  )
 
   path <- file.path(path, "collections", collection_id, "items", feature_id)
   url <- modify_url(url = base_url, path = path, query = query)

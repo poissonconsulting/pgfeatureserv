@@ -1,0 +1,64 @@
+{
+    "id": "whse_basemapping.fwa_named_streams",
+    "title": "whse_basemapping.fwa_named_streams",
+    "description": "Named streams of BC, aggregated per watershed group and simplified using a 25m tolerance (primarily for mapping use)",
+    "extent": {
+        "spatial": {
+            "crs": "http://www.opengis.net/def/crs/EPSG/0/4326",
+            "bbox": [
+                -138.25199375974717,
+                47.710417288205385,
+                -110.49736567460036,
+                59.98396328077942
+            ]
+        }
+    },
+    "geometrytype": "MultiLineString",
+    "properties": [
+        {
+            "name": "named_streams_id",
+            "type": "number",
+            "description": "Named stream unique identifier"
+        },
+        {
+            "name": "gnis_name",
+            "type": "string",
+            "description": "The BCGNIS (BC Geographical Names Information System) name associated with the stream"
+        },
+        {
+            "name": "blue_line_key",
+            "type": "number",
+            "description": "The blue line key of the named stream, see FWA documentation for blue_line_key description"
+        },
+        {
+            "name": "stream_order",
+            "type": "number",
+            "description": "The maximum stream order associated with the stream name"
+        },
+        {
+            "name": "watershed_group_code",
+            "type": "string",
+            "description": "The watershed group code associated with the named stream"
+        }
+    ],
+    "links": [
+        {
+            "href": "h/collections/whse_basemapping.fwa_named_streams",
+            "rel": "self",
+            "type": "application/json",
+            "title": "This document as JSON"
+        },
+        {
+            "href": "h/collections/whse_basemapping.fwa_named_streams.html",
+            "rel": "alternate",
+            "type": "text/html",
+            "title": "This document as HTML"
+        },
+        {
+            "href": "h/collections/whse_basemapping.fwa_named_streams/items",
+            "rel": "items",
+            "type": "application/geo+json",
+            "title": "Features as GeoJSON"
+        }
+    ]
+}

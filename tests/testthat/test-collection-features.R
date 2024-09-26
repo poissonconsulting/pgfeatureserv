@@ -350,7 +350,7 @@ httptest::with_mock_dir("cfs", {
                                  nocache = 'true',
                                  limit = 2
     )
-    expect_identical(x$named_streams_id, c(1, 2))
+    expect_identical(x$named_streams_id, c(23361, 23362))
     x2 <- pgf_collection_features(collection_id,
                                   base_url = base_url,
                                   path = path,

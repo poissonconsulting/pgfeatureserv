@@ -1,6 +1,6 @@
 Package: pgfeatureserv
 Title: Client for pg_featureserv RESTful web service
-Version: 0.0.0.9003
+Version: 0.0.0.9005
 Authors@R: 
     person("Seb", "Dalgarno", , "seb.dalgarno@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-3658-4517"))
@@ -8,7 +8,7 @@ Description: Client for pg_featureserv, a RESTful geospatial feature server for 
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.0
+RoxygenNote: 7.3.2
 Imports: 
     chk,
     geojsonsf,

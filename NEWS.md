@@ -1,4 +1,9 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# pgfeatureserv 0.0.0.9005 (2024-09-25)
+
+- Made pgf_collection_feature() defunct as can no longer filter on `feature_id`. 
+
 
 # pgfeatureserv 0.0.0.9003 (2022-08-04)
 
@@ -13,5 +18,4 @@
 # pgfeatureserv 0.0.0.9001 (2022-01-17)
 
 - Initial development release.
-
 

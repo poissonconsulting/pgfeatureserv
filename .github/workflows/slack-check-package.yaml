@@ -1,0 +1,39 @@
+on:
+  schedule:
+    - cron: '0 1 * * 1' # Every Sunday at 5:00 PM PST = Monday at 01:00 UTC
+
+name: slack-check-package
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.PRIVATE_ACTIONS_PAT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Set up R
+      uses: r-lib/actions/setup-r@v2
+      with:
+          use-public-rspm: true
+
+    - name: Install dependencies
+      run: |
+        install.packages("remotes")
+        remotes::install_github("poissonconsulting/poisslack")
+      shell: Rscript {0}
+
+    - name: Message associated Slack channel
+      env:
+        GITHUB_REPOSITORY: ${{ github.repository }}
+        SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      run: |
+        poisslack::slackr_bot(
+          text = "test",
+          channel = basename(Sys.getenv("GITHUB_REPOSITORY")),
+          username = "check-package-bot",
+          incoming_webhook_url = Sys.getenv("SLACK_WEBHOOK_URL")
+        )
+      shell: Rscript {0}

@@ -51,12 +51,12 @@ pgf_function <- function(function_id,
 #' )
 #' }
 pgf_function_parameters <- function(function_id,
-                         base_url,
-                          path,
-                         nocache = NULL,
-                          user = gh_user(),
-                          verbose = FALSE,
-                          response = FALSE) {
+                                    base_url,
+                                    path,
+                                    nocache = NULL,
+                                    user = gh_user(),
+                                    verbose = FALSE,
+                                    response = FALSE) {
   pgf_function(
     function_id = function_id,
     base_url = base_url,
@@ -123,12 +123,12 @@ pgf_function_properties <- function(function_id,
 #' )
 #' }
 pgf_function_description <- function(function_id,
-                                    base_url,
-                                    path,
-                                    nocache = NULL,
-                                    user = gh_user(),
-                                    verbose = FALSE,
-                                    response = FALSE) {
+                                     base_url,
+                                     path,
+                                     nocache = NULL,
+                                     user = gh_user(),
+                                     verbose = FALSE,
+                                     response = FALSE) {
   pgf_function(
     function_id = function_id,
     base_url = base_url,

@@ -24,23 +24,25 @@
 #' }
 #'
 pgf_function_result <- function(function_id,
-                         base_url,
-                         path,
-                         parameters,
-                         limit = 10000,
-                         offset = 0,
-                         sortby = NULL,
-                         bbox = NULL,
-                         properties = NULL,
-                         precision = NULL,
-                         transform = NULL,
-                         nocache = NULL,
-                         user = gh_user(),
-                         verbose = FALSE,
-                         response = FALSE) {
+                                base_url,
+                                path,
+                                parameters,
+                                limit = 10000,
+                                offset = 0,
+                                sortby = NULL,
+                                bbox = NULL,
+                                properties = NULL,
+                                precision = NULL,
+                                transform = NULL,
+                                nocache = NULL,
+                                user = gh_user(),
+                                verbose = FALSE,
+                                response = FALSE) {
   chk_string(function_id)
-  chkor_vld(vld_null(parameters),
-            vld_named(parameters) & vld_vector(parameters))
+  chkor_vld(
+    vld_null(parameters),
+    vld_named(parameters) & vld_vector(parameters)
+  )
   chk_whole_number(limit)
   chk_gt(limit)
   chk_lte(limit, 10000L)
@@ -48,8 +50,10 @@ pgf_function_result <- function(function_id,
   chk_gte(offset)
   chk_null_or(bbox, vld = vld_numeric)
   chk_null_or(properties, vld = vld_character)
-  chkor_vld(vld_null(precision),
-            vld_whole_number(precision) & vld_gt(precision, 0))
+  chkor_vld(
+    vld_null(precision),
+    vld_whole_number(precision) & vld_gt(precision, 0)
+  )
   chk_null_or(transform, vld = vld_character)
   chk_null_or(nocache, vld = vld_charflag)
   chk_flag(verbose)

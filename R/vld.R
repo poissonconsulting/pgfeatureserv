@@ -11,5 +11,5 @@ vld_response_json <- function(x) {
 }
 
 vld_charflag <- function(x) {
-  x %in% c('true', 'false')
+  x %in% c("true", "false")
 }

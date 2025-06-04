@@ -79,8 +79,10 @@ collections$id
 Get Sangan River from the stream network collection:
 ```{r}
 coll <- "whse_basemapping.fwa_stream_networks_sp"
-river <- pgfeatureserv::pgf_collection_features(coll, base_url = base_url, path = path,
-                 filter = list(gnis_name = "Sangan River"))
+river <- pgfeatureserv::pgf_collection_features(coll,
+  base_url = base_url, path = path,
+  filter = list(gnis_name = "Sangan River")
+)
 class(river)
 river[1:5, 1:4]
 ```

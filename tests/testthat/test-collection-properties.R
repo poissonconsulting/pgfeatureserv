@@ -8,7 +8,7 @@ httptest::with_mock_dir("cp", {
       collection_id = collection_id,
       base_url = base_url,
       path = path,
-      nocache = 'true'
+      nocache = "true"
     )
     expect_s3_class(x, "tbl_df")
     expect_identical(names(x), c("name", "type", "description"))
@@ -24,13 +24,10 @@ httptest::with_mock_dir("cp", {
       base_url = base_url,
       path = path,
       response = TRUE,
-      nocache = 'true'
+      nocache = "true"
     )
 
     expect_s3_class(x, "pgfs_request")
     expect_s3_class(x$response, "response")
   })
 })
-
-
-

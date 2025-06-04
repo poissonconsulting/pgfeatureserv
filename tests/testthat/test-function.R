@@ -5,9 +5,9 @@ httptest::with_mock_dir("f", {
     path <- "fwa"
 
     x <- pgf_function_properties(function_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true'
+      base_url = base_url,
+      path = path,
+      nocache = "true"
     )
 
     expect_s3_class(x, "tbl_df")
@@ -21,9 +21,9 @@ httptest::with_mock_dir("f", {
     path <- "fwa"
 
     x <- pgf_function_parameters(function_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true'
+      base_url = base_url,
+      path = path,
+      nocache = "true"
     )
 
     expect_s3_class(x, "tbl_df")
@@ -37,13 +37,12 @@ httptest::with_mock_dir("f", {
     path <- "fwa"
 
     x <- pgf_function_description(function_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true'
+      base_url = base_url,
+      path = path,
+      nocache = "true"
     )
 
     expect_type(x, "character")
     expect_length(x, 1L)
   })
-
 })

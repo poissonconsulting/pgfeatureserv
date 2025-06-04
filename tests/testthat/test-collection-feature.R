@@ -7,12 +7,11 @@ httptest::with_mock_dir("cf", {
 
     expect_defunct({
       pgf_collection_feature(collection_id,
-                                  feature_id = feature_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true'
+        feature_id = feature_id,
+        base_url = base_url,
+        path = path,
+        nocache = "true"
       )
     })
   })
 })
-

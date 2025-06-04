@@ -5,7 +5,7 @@ httptest::with_mock_dir("cs", {
     x <- pgf_collections(
       base_url = base_url,
       path = path,
-      nocache = 'true'
+      nocache = "true"
     )
     expect_s3_class(x, "tbl_df")
     expect_identical(names(x), c(
@@ -16,9 +16,11 @@ httptest::with_mock_dir("cs", {
   test_that("collections collection_id values haven't changed", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
-    x <- pgf_collections(base_url = base_url,
-                         path = path,
-                         nocache = 'true')
+    x <- pgf_collections(
+      base_url = base_url,
+      path = path,
+      nocache = "true"
+    )
     expect_snapshot_data(x$id, "collections")
   })
 
@@ -30,7 +32,7 @@ httptest::with_mock_dir("cs", {
       base_url = base_url,
       path = path,
       response = TRUE,
-      nocache = 'true'
+      nocache = "true"
     )
 
     expect_s3_class(x, "pgfs_request")

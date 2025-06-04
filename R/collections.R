@@ -21,7 +21,7 @@ pgf_collections <- function(base_url,
   chk_string(base_url)
   chk_string(path)
   chk_string(user)
-  chk_subset(nocache, c('true', 'false'))
+  chk_subset(nocache, c("true", "false"))
   chk_flag(verbose)
   chk_flag(response)
 

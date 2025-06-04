@@ -5,7 +5,7 @@ httptest::with_mock_dir("fs", {
     x <- pgf_functions(
       base_url = base_url,
       path = path,
-      nocache = 'true'
+      nocache = "true"
     )
     expect_s3_class(x, "tbl_df")
     expect_identical(names(x), c("id", "description", "links"))
@@ -19,7 +19,7 @@ httptest::with_mock_dir("fs", {
       base_url = base_url,
       path = path,
       response = TRUE,
-      nocache = 'true'
+      nocache = "true"
     )
 
     expect_s3_class(x, "pgfs_request")

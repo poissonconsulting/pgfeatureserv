@@ -10,12 +10,12 @@ httptest::with_mock_dir("fr", {
     )
 
     x <- pgf_function_result(function_id,
-                             base_url = base_url,
-                             path = path,
-                             parameters = parameters,
-                             limit = 1,
-                             response = TRUE,
-                             nocache = 'true'
+      base_url = base_url,
+      path = path,
+      parameters = parameters,
+      limit = 1,
+      response = TRUE,
+      nocache = "true"
     )
 
     expect_s3_class(x, "pgfs_request")
@@ -33,10 +33,10 @@ httptest::with_mock_dir("fr", {
     )
 
     x <- pgf_function_result(function_id,
-                             base_url = base_url,
-                             path = path,
-                             parameters = parameters,
-                             nocache = 'true'
+      base_url = base_url,
+      path = path,
+      parameters = parameters,
+      nocache = "true"
     )
 
     expect_s3_class(x, "sf")
@@ -54,10 +54,10 @@ httptest::with_mock_dir("fr", {
 
     expect_chk_error(
       pgf_function_result("not_a_function",
-                          base_url = base_url,
-                          path = path,
-                          parameters = parameters,
-                          nocache = 'true'
+        base_url = base_url,
+        path = path,
+        parameters = parameters,
+        nocache = "true"
       ),
       "API request failed \\[404\\]: Function not found: postgisftw.not_a_function"
     )
@@ -74,11 +74,11 @@ httptest::with_mock_dir("fr", {
 
     expect_chk_error(
       pgf_function_result("fwa_locatealong",
-                          base_url = base_url,
-                          path = path,
-                          parameters = parameters,
-                          transform = "not_a_transform",
-                          nocache = 'true'
+        base_url = base_url,
+        path = path,
+        parameters = parameters,
+        transform = "not_a_transform",
+        nocache = "true"
       ),
       "API request failed \\[400\\]: Invalid value for parameter transform: not_a_transform"
     )
@@ -95,14 +95,13 @@ httptest::with_mock_dir("fr", {
 
     expect_chk_error(
       pgf_function_result("fwa_locatealong",
-                          base_url = base_url,
-                          path = path,
-                          parameters = parameters,
-                          bbox = 1,
-                          nocache = 'true'
+        base_url = base_url,
+        path = path,
+        parameters = parameters,
+        bbox = 1,
+        nocache = "true"
       ),
       "API request failed \\[400\\]: Invalid value for parameter bbox: 1"
     )
   })
 })
-

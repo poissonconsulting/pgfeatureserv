@@ -5,11 +5,11 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 limit = 1,
-                                 response = TRUE,
-                                 nocache = NULL,
+      base_url = base_url,
+      path = path,
+      limit = 1,
+      response = TRUE,
+      nocache = NULL,
     )
 
     expect_s3_class(x, "pgfs_request")
@@ -22,10 +22,10 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 10
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 10
     )
     expect_s3_class(x, "sf")
     expect_s3_class(x, "tbl_df")
@@ -43,10 +43,10 @@ httptest::with_mock_dir("cfs", {
     filter <- list(gnis_name_1 = "Trout Lake")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 filter = filter
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      filter = filter
     )
     expect_s3_class(x, "sf")
     expect_true(all(x$gnis_name_1 == "Trout Lake"))
@@ -78,18 +78,18 @@ httptest::with_mock_dir("cfs", {
     sortby <- c("blue_line_key")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 1,
-                                 sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1,
+      sortby = sortby
     )
 
     x2 <- pgf_collection_features(collection_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  limit = 1
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1
     )
     expect_true(x$blue_line_key < x2$blue_line_key)
   })
@@ -103,18 +103,18 @@ httptest::with_mock_dir("cfs", {
     sortby_desc <- c("-blue_line_key")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 1,
-                                 sortby = sortby_desc
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1,
+      sortby = sortby_desc
     )
     x2 <- pgf_collection_features(collection_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  limit = 1,
-                                  sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1,
+      sortby = sortby
     )
     expect_true(x$blue_line_key > x2$blue_line_key)
   })
@@ -128,10 +128,10 @@ httptest::with_mock_dir("cfs", {
     bbox <- c(-117.46, 50.6, -117.4601, 50.6001)
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 bbox = bbox
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      bbox = bbox
     )
     expect_identical(x$gnis_name_1, "Trout Lake")
     expect_identical(
@@ -157,11 +157,11 @@ httptest::with_mock_dir("cfs", {
     properties <- c("blue_line_key", "gnis_name")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 1,
-                                 properties = properties
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1,
+      properties = properties
     )
     expect_identical(colnames(x), c(properties, "geometry"))
   })
@@ -175,11 +175,11 @@ httptest::with_mock_dir("cfs", {
     precision <- 1
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 precision = precision,
-                                 limit = 1
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      precision = precision,
+      limit = 1
     )
 
     expect_s3_class(x, "sf")
@@ -197,11 +197,11 @@ httptest::with_mock_dir("cfs", {
     filter <- list(gnis_name_1 = "Kootenay Lake")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 filter = filter,
-                                 transform = c("ST_Simplify", 50000)
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      filter = filter,
+      transform = c("ST_Simplify", 50000)
     )
 
     expect_s3_class(x, "sf")
@@ -218,11 +218,11 @@ httptest::with_mock_dir("cfs", {
     properties <- "geometry"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 transform = transform,
-                                 properties = properties
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      transform = transform,
+      properties = properties
     )
 
     expect_s3_class(x, "sf")
@@ -239,11 +239,11 @@ httptest::with_mock_dir("cfs", {
     groupby <- "gnis_name"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 10,
-                                 groupby = groupby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 10,
+      groupby = groupby
     )
 
     expect_s3_class(x, "sf")
@@ -264,11 +264,11 @@ httptest::with_mock_dir("cfs", {
     filter <- list(gnis_name_1 = "kootenay lake")
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 filter = filter,
-                                 bbox = bbox
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      filter = filter,
+      bbox = bbox
     )
     expect_s3_class(x, "sf")
     expect_identical(nrow(x), 0L)
@@ -286,9 +286,9 @@ httptest::with_mock_dir("cfs", {
 
     expect_chk_error(
       pgf_collection_features("not_a_collection",
-                              base_url = base_url,
-                              path = path,
-                              nocache = 'true'
+        base_url = base_url,
+        path = path,
+        nocache = "true"
       ),
       "API request failed \\[404\\]: Collection not found: not_a_collection"
     )
@@ -301,10 +301,10 @@ httptest::with_mock_dir("cfs", {
 
     expect_chk_error(
       pgf_collection_features(collection_id,
-                              base_url = base_url,
-                              path = path,
-                              nocache = 'true',
-                              transform = "not_a_transform"
+        base_url = base_url,
+        path = path,
+        nocache = "true",
+        transform = "not_a_transform"
       ),
       "API request failed \\[400\\]: Invalid value for parameter transform: not_a_transform"
     )
@@ -317,10 +317,10 @@ httptest::with_mock_dir("cfs", {
 
     expect_chk_error(
       pgf_collection_features(collection_id,
-                              base_url = base_url,
-                              path = path,
-                              nocache = 'true',
-                              bbox = 1
+        base_url = base_url,
+        path = path,
+        nocache = "true",
+        bbox = 1
       ),
       "API request failed \\[400\\]: Invalid value for parameter bbox: 1"
     )
@@ -332,10 +332,10 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     expect_chk_error(pgf_collection_features(collection_id,
-                                             base_url = base_url,
-                                             path = path,
-                                             nocache = 'true',
-                                             filter = c(1)
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      filter = c(1)
     ))
   })
 
@@ -345,18 +345,18 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 2
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 2
     )
     expect_identical(x$named_streams_id, c(23361, 23362))
     x2 <- pgf_collection_features(collection_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  offset = 1,
-                                  limit = 1
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 1,
+      limit = 1
     )
     expect_identical(
       x2$named_streams_id,
@@ -371,20 +371,20 @@ httptest::with_mock_dir("cfs", {
 
     sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 offset = 997,
-                                 limit = 2,
-                                 sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 997,
+      limit = 2,
+      sortby = sortby
     )
     x2 <- pgf_collection_features(collection_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  offset = 998,
-                                  limit = 1,
-                                  sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 998,
+      limit = 1,
+      sortby = sortby
     )
     expect_s3_class(x, "sf")
     expect_s3_class(x2, "sf")
@@ -398,20 +398,20 @@ httptest::with_mock_dir("cfs", {
 
     sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 offset = 9999,
-                                 limit = 2,
-                                 sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 9999,
+      limit = 2,
+      sortby = sortby
     )
     x2 <- pgf_collection_features(collection_id,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  offset = 10000,
-                                  limit = 1,
-                                  sortby = sortby
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 10000,
+      limit = 1,
+      sortby = sortby
     )
     expect_s3_class(x, "sf")
     expect_s3_class(x2, "sf")
@@ -429,20 +429,20 @@ httptest::with_mock_dir("cfs", {
 
     sortby <- "named_streams_id"
     x <- pgf_collection_features(collection_id,
-                                 offset = 10000,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 limit = 2,
-                                 sortby = sortby
+      offset = 10000,
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 2,
+      sortby = sortby
     )
     x2 <- pgf_collection_features(collection_id,
-                                  offset = 10001,
-                                  base_url = base_url,
-                                  path = path,
-                                  nocache = 'true',
-                                  limit = 1,
-                                  sortby = sortby
+      offset = 10001,
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      limit = 1,
+      sortby = sortby
     )
     expect_s3_class(x, "sf")
     expect_s3_class(x2, "sf")
@@ -459,10 +459,10 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 offset = 99999, limit = 1
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 99999, limit = 1
     )
     expect_s3_class(x, "sf")
   })
@@ -473,12 +473,11 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     x <- pgf_collection_features(collection_id,
-                                 base_url = base_url,
-                                 path = path,
-                                 nocache = 'true',
-                                 offset = 100000, limit = 1
+      base_url = base_url,
+      path = path,
+      nocache = "true",
+      offset = 100000, limit = 1
     )
     expect_s3_class(x, "sf")
   })
 })
-

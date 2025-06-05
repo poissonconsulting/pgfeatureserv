@@ -11,26 +11,45 @@ jobs:
     runs-on: ubuntu-latest
     if: always()
     steps:
-      - name: Send Slack message
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          use-public-rspm: true
+
+      - name: Install dependencies
+        run: |
+          install.packages("remotes")
+          remotes::install_github("poissonconsulting/poisslack")
+        shell: Rscript {0}
+
+      - name: Message associated Slack channel
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          STATUS: ${{ github.event.workflow_run.conclusion }}
           REPO: ${{ github.repository }}
+          STATUS: ${{ github.event.workflow_run.conclusion }}
           URL: ${{ github.event.workflow_run.html_url }}
         run: |
-          if [ -z "$SLACK_WEBHOOK_URL" ]; then
-            echo "Missing SLACK_WEBHOOK_URL"; exit 1
-          fi
-
-          case "$STATUS" in
-            success) ICON="✅";;
-            failure) ICON="❌";;
-            cancelled) ICON="🟡";;
-            *) ICON="ℹ️";;
-          esac
-
-          message="${ICON} *R CMD check for \`${REPO}\` finished with status:* \`${STATUS}\`\n<${URL}|View on GitHub>"
-
-          curl -X POST -H 'Content-type: application/json' \
-            --data "{\"text\": \"$message\"}" \
-            "$SLACK_WEBHOOK_URL"
+          status <- Sys.getenv("STATUS")
+          icon <- switch(
+            status,
+            success = "✅",
+            failure = "❌",
+            cancelled = "🚫",
+            "ℹ️"
+          )
+          poisslack::slackr_bot(
+            text = sprintf(
+              "%s R CMD check for `%s` **%s**\nView on GitHub: %s",
+              icon,
+              Sys.getenv("REPO"),
+              toupper(status),
+              Sys.getenv("URL")
+            ),
+            channel = basename(Sys.getenv("REPO")),
+            username = "check-package-bot",
+            incoming_webhook_url = Sys.getenv("SLACK_WEBHOOK_URL")
+          )
+        shell: Rscript {0}

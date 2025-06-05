@@ -1,6 +1,4 @@
 on:
-  pull_request:
-    branches: main
   workflow_run:
     workflows: ["R-CMD-check"]
     types:

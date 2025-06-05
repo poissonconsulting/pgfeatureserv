@@ -1,4 +1,6 @@
 on:
+  pull_request:
+    branches: main
   workflow_run:
     workflows: ["R-CMD-check"]
     types:
@@ -44,7 +46,7 @@ jobs:
             text = sprintf(
               "%s R CMD check for `%s` **%s**\nView on GitHub: %s",
               icon,
-              Sys.getenv("REPO"),
+              basename(Sys.getenv("REPO")),
               toupper(status),
               Sys.getenv("URL")
             ),

@@ -4,7 +4,7 @@ on:
   push:
     branches: main
   pull_request:
-    branches: [main, slack-map]
+    branches: main
   schedule:
     - cron: '0 1 * * 1' # Every Sunday at 5:00 PM PST = Monday at 01:00 UTC
 

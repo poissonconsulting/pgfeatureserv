@@ -52,3 +52,37 @@ jobs:
         with:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
+
+      - name: Message associated Slack channel
+        env:
+          GITHUB_PAT: ${{ secrets.PRIVATE_ACTIONS_PAT }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          REPO: ${{ github.repository }}
+          STATUS: ${{ github.event.workflow_run.conclusion }}
+          URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          install.packages("remotes")
+          remotes::install_github("poissonconsulting/poisslack")
+
+          status <- Sys.getenv("STATUS")
+          icon <- switch(
+            status,
+            success = "✅",
+            failure = "❌",
+            cancelled = "🚫",
+            "ℹ️"
+          )
+
+          poisslack::slackr_bot(
+            text = sprintf(
+              "%s R CMD check for `%s` **%s**\nView on GitHub: %s",
+              icon,
+              basename(Sys.getenv("REPO")),
+              toupper(status),
+              Sys.getenv("URL")
+            ),
+            channel = basename(Sys.getenv("REPO")),
+            username = "check-package-bot",
+            incoming_webhook_url = Sys.getenv("SLACK_WEBHOOK_URL")
+          )
+        shell: Rscript {0}

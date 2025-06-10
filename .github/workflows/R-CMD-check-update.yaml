@@ -102,10 +102,12 @@ jobs:
           remotes::install_github("poissonconsulting/poisslack")
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
+          print(files)
 
           msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
           for (i in files) {
-            txt <- readLines(i)
+            txt <- supressWarnings(readLines(i))
+            print(txt)
             os_line <- txt[1]
             log_lines <- txt[-1]
             icon <- switch(

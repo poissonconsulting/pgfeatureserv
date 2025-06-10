@@ -97,7 +97,7 @@ jobs:
           install.packages("remotes")
           remotes::install_github("poissonconsulting/poisslack")
 
-          files <- list.files("status", pattern = "^status-.*\\.txt$", full.names = TRUE)
+          files <- list.files("status", pattern = "^status-.*\\.txt$", full.names = TRUE, recursive = TRUE)
 
           msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
           for (i in files) {

@@ -47,10 +47,13 @@ jobs:
           extra-packages: any::rcmdcheck
           needs: check
 
-      - name: 🧪 Run R CMD check and save summary
+      - name: 🧪 Run R-CMD-check and save summary
+        env:
+          OS: ${{ matrix.config.os }}
+          R: ${{ matrix.config.r }}
         run: |
           check <- rcmdcheck::rcmdcheck(
-            args = c("--no-manual","--compact-vignettes=gs+qpdf"),
+            args = c("--no-manual", "--compact-vignettes=gs+qpdf"),
             error_on = "never"
           )
           result <- toupper(check$status)
@@ -58,14 +61,15 @@ jobs:
             utils::capture.output(print(check)),
             collapse = "\n"
           )
-          cat(result, "\n---\n", log_text, file = "status.txt")
+          filename <- paste0("status-", Sys.getenv("OS"), "-R", Sys.getenv("R"), ".txt")
+          cat(result, "\n---\n", log_text, file = filename)
         shell: Rscript {0}
 
       - name: 💾 Upload status artifact
         uses: actions/upload-artifact@v4
         with:
-          name: status-${{ matrix.config.os }}-R${{ matrix.config.r }}
-          path: status.txt
+          name: status
+          path: status-${{ matrix.config.os }}-R${{ matrix.config.r }}.txt
           retention-days: 6
 
   message-slack:
@@ -80,6 +84,7 @@ jobs:
       - name: 📥 Download status artifacts
         uses: actions/download-artifact@v4
         with:
+          name: status
           path: status
 
       - name: 🧰 Set up R
@@ -97,7 +102,7 @@ jobs:
           install.packages("remotes")
           remotes::install_github("poissonconsulting/poisslack")
 
-          files <- list.files("status", pattern = "^status-.*\\.txt$", full.names = TRUE, recursive = TRUE)
+          files <- list.files("status", full.names = TRUE)
 
           msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
           for (i in files) {

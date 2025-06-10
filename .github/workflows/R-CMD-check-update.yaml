@@ -106,7 +106,7 @@ jobs:
 
           msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
           for (i in files) {
-            txt <- supressWarnings(readLines(i))
+            txt <- readLines(i)
             print(txt)
             os_line <- txt[1]
             log_lines <- txt[-1]

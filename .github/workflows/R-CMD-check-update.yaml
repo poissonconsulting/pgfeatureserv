@@ -53,7 +53,7 @@ jobs:
           R: ${{ matrix.config.r }}
         run: |
           check <- rcmdcheck::rcmdcheck(
-            args = c("--no-manual", "--compact-vignettes=gs+qpdf"),
+            args = "--no-manual",
             error_on = "never"
           )
           result <- toupper(check$status)
@@ -62,14 +62,14 @@ jobs:
             collapse = "\n"
           )
           filename <- paste0("status-", Sys.getenv("OS"), "-R", Sys.getenv("R"), ".txt")
-          cat(result, "\n---\n", log_text, file = filename)
+          cat(result, "\n---\n", log_text, "\n", file = filename)
         shell: Rscript {0}
 
       - name: 💾 Upload status artifact
         uses: actions/upload-artifact@v4
         with:
-          name: status-${{ matrix.config.os }}-R${{ matrix.config.r }}
-          path: status-${{ matrix.config.os }}-R${{ matrix.config.r }}.txt
+          name: ${{ matrix.config.os }}-R-${{ matrix.config.r }}
+          path: ${{ matrix.config.os }}-R-${{ matrix.config.r }}.txt
           retention-days: 6
 
   message-slack:
@@ -105,24 +105,20 @@ jobs:
 
           msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
           for (i in files) {
-            txt <- readLines(i)
-            os_line <- txt[1]
-            log_lines <- txt[-1]
-            icon <- switch(
-              TRUE,
-              grepl("^SUCCESS", os_line) ~ "✅",
-              grepl("^WARNING", os_line) ~ "⚠️",
-              grepl("^NOTE", os_line) ~ "📝",
-              TRUE ~ "❌"
-            )
-            msg <- paste0(msg, icon, " ", os_line, "\n")
-            if (!grepl("^SUCCESS", os_line)) {
-              snippet <- paste(log_lines[1:min(20, length(log_lines))], collapse = "\n")
-              msg <- paste0(msg, "```\n", snippet, "\n```\n\n")
-            }
+            os <- basename(i)
+            os <- sub("\\.txt$", "", os)
+            os <- gsub("-", " ", os)
+
+            status <- readLines(i)
+            status <- status[length(status)]
+            if (grepl("[1-9][0-9]* error", status)) { status <- "❌ ERROR" }
+            else if (grepl("[1-9][0-9]* warning", status)) { status <- "⚠️ WARNING" }
+            else if (grepl("[1-9][0-9]* note", status)) { status <- "📝 NOTE" }
+            else { status <- "✅ SUCCESS" }
+
+            msg <- paste0(msg, os, ": ", status, "\n")
           }
           msg <- paste0(msg, "🔗 View full logs: ", Sys.getenv("URL"))
-          print(msg)
 
           poisslack::slackr_bot(
             text = msg,

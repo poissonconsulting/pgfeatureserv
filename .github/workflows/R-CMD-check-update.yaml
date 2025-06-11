@@ -61,7 +61,7 @@ jobs:
             utils::capture.output(print(check)),
             collapse = "\n"
           )
-          filename <- paste0("status-", Sys.getenv("OS"), "-R", Sys.getenv("R"), ".txt")
+          filename <- paste0(Sys.getenv("OS"), "-R-", Sys.getenv("R"), ".txt")
           cat(result, "\n---\n", log_text, "\n", file = filename)
         shell: Rscript {0}
 

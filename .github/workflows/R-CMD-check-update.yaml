@@ -103,7 +103,7 @@ jobs:
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
 
-          msg <- paste0("**R CMD check results for `", basename(Sys.getenv("REPO")), "`**:\n\n")
+          msg <- paste0("R CMD check results for ", basename(Sys.getenv("REPO")), ":\n\n")
           for (i in files) {
             os <- basename(i)
             os <- sub("\\.txt$", "", os)
@@ -118,7 +118,7 @@ jobs:
 
             msg <- paste0(msg, os, ": ", status, "\n")
           }
-          msg <- paste0(msg, "🔗 View full logs: ", Sys.getenv("URL"))
+          msg <- paste0("\n", msg, "🔗 View full logs: ", Sys.getenv("URL"))
 
           poisslack::slackr_bot(
             text = msg,

@@ -118,7 +118,7 @@ jobs:
 
             msg <- paste0(msg, os, ": ", status, "\n")
           }
-          msg <- paste0("\n", msg, "🔗 View full logs: ", Sys.getenv("URL"))
+          msg <- paste0(msg, "\n🔗 View full logs: ", Sys.getenv("URL"))
 
           poisslack::slackr_bot(
             text = msg,

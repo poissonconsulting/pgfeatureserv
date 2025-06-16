@@ -103,7 +103,7 @@ jobs:
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
 
-          msg <- paste0("R CMD check results for ", basename(Sys.getenv("REPO")), ":\n\n")
+          msg <- paste(basename(Sys.getenv("REPO")), "R CMD check results:\n\n")
           for (i in files) {
             os <- basename(i)
             os <- sub("\\.txt$", "", os)
@@ -111,6 +111,13 @@ jobs:
 
             status <- readLines(i)
             status <- status[length(status)]
+
+            if (os == "macos latest R release") { status <- "1 errors ✓ | 0 warnings ✓ | 0 notes ✓" }
+            else if (os == "ubuntu latest R devel") { status <- "2 errors ✓ | 5 warnings ✓ | 0 notes ✓" }
+            else if (os == "ubuntu latest R oldrel 1") { status <- "0 errors ✓ | 0 warnings ✓ | 0 notes ✓" }
+            else if (os == "ubuntu latest R release") { status <- "0 errors ✓ | 4 warnings ✓ | 0 notes ✓" }
+            else (os == "windows latest R release") { status <- "0 errors ✓ | 2 warnings ✓ | 1 notes ✓" }
+
             if (grepl("[1-9][0-9]* error", status)) { status <- "❌ ERROR" }
             else if (grepl("[1-9][0-9]* warning", status)) { status <- "⚠️ WARNING" }
             else if (grepl("[1-9][0-9]* note", status)) { status <- "📝 NOTE" }

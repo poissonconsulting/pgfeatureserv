@@ -93,7 +93,6 @@ jobs:
 
       - name: 📢 Send Slack message
         env:
-          GITHUB_PAT: ${{ secrets.PRIVATE_ACTIONS_PAT }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
           REPO: ${{ github.repository }}
           URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

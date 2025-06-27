@@ -76,6 +76,6 @@ jobs:
         # if: github.event_name == 'schedule'
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ matrix.config.os }}-R-${{ matrix.config.r }}
+          name: status
           path: ${{ matrix.config.os }}-R-${{ matrix.config.r }}.txt
           retention-days: 6

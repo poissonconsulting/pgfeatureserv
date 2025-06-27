@@ -1,9 +1,6 @@
 on:
-  # schedule:
-  #   - cron: '0 2 * * 1' # One hour after weekly R-CMD-check
-  push:
-    branches:
-      - slack-map
+  schedule:
+    - cron: '0 2 * * 1' # One hour after weekly R-CMD-check
 
 name: slack-check-package
 
@@ -17,6 +14,8 @@ jobs:
 
       - name: 📥 Download status artifacts (if any)
         uses: actions/download-artifact@v4
+        with:
+          path: status
 
       - name: 🧰 Set up R
         uses: r-lib/actions/setup-r@v2

@@ -1,7 +1,10 @@
 on:
   # schedule:
   #   - cron: '0 2 * * 1' # One hour after weekly R-CMD-check
-  workflow_dispatch
+  workflow_run:
+    workflows: ["R-CMD-check"]
+    types:
+      - completed
 
 name: slack-check-package
 

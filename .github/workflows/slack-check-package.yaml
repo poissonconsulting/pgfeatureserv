@@ -33,6 +33,7 @@ jobs:
           remotes::install_github("poissonconsulting/poisslack")
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
+          print(files)
 
           msg <- paste(basename(Sys.getenv("REPO")), "R CMD check results:\n\n")
           for (i in files) {

@@ -15,11 +15,13 @@ jobs:
       - name: 📦 Checkout repo
         uses: actions/checkout@v4
 
-      - name: 📥 Download status artifacts (if any)
-        uses: actions/download-artifact@v4
-        with:
-          path: status
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: 🔧 Install GitHub CLI
+        uses: cli/cli-action@v2
+
+      - name: 📥 Download status artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh run download ${{ github.event.workflow_run.id }} --dir status
 
       - name: 🧰 Set up R
         uses: r-lib/actions/setup-r@v2

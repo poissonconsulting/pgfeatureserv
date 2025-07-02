@@ -15,9 +15,6 @@ jobs:
       - name: 📦 Checkout repo
         uses: actions/checkout@v4
 
-      - name: 🔧 Install GitHub CLI
-        uses: cli/cli-action@v2
-
       - name: 📥 Download status artifacts
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

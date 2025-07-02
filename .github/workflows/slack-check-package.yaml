@@ -6,8 +6,6 @@ on:
 
 name: slack-check-package
 
-permissions: read-all
-
 jobs:
   message-slack:
     if: ${{ github.event.workflow_run.event == 'schedule' }}
@@ -21,6 +19,7 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           path: status
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: 🧰 Set up R
         uses: r-lib/actions/setup-r@v2

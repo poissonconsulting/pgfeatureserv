@@ -64,3 +64,4 @@ jobs:
             incoming_webhook_url = Sys.getenv("SLACK_WEBHOOK_URL")
           )
         shell: Rscript {0}
+

@@ -8,7 +8,7 @@ name: slack-check-package
 
 jobs:
   message-slack:
-    if: ${{ github.event.workflow_run.head_branch == 'slack-map' }}
+    if: ${{ github.event.workflow_run.event == 'schedule' }}
     runs-on: ubuntu-latest
 
     steps:

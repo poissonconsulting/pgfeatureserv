@@ -1,4 +1,8 @@
 on:
+  push:
+    branches: slack-map
+  pull_request:
+    branches: slack-map
   schedule:
     - cron: '0 2 * * 1' # One hour after weekly R-CMD-check
 
@@ -33,6 +37,7 @@ jobs:
           remotes::install_github("poissonconsulting/poisslack")
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
+          print(files)
 
           msg <- paste(basename(Sys.getenv("REPO")), "R CMD check results:\n\n")
           for (i in files) {

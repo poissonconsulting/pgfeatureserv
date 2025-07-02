@@ -18,7 +18,6 @@ jobs:
       - name: 📥 Download status artifacts (if any)
         uses: actions/download-artifact@v4
         with:
-          name: status
           path: status
 
       - name: 🧰 Set up R

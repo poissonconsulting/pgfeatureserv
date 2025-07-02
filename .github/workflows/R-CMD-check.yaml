@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: main
   schedule:
-    - cron: '20 19 * * 3'
+    - cron: '35 19 * * 3'
     # - cron: '0 1 * * 1' # Every Sunday at 5:00 PM PST = Monday at 01:00 UTC
 
 name: R-CMD-check
@@ -53,33 +53,6 @@ jobs:
           upload-snapshots: true
           build_args: 'c("--no-manual","--compact-vignettes=gs+qpdf")'
 
-      # - name: 🧪 Run R-CMD-check and save summary
-      #   if: github.event_name == 'schedule'
-      #   env:
-      #     OS: ${{ matrix.config.os }}
-      #     R: ${{ matrix.config.r }}
-      #   run: |
-      #     check <- rcmdcheck::rcmdcheck(
-      #       args = "--no-manual",
-      #       error_on = "never"
-      #     )
-      #     result <- toupper(check$status)
-      #     log_text <- paste(
-      #       utils::capture.output(print(check)),
-      #       collapse = "\n"
-      #     )
-      #     filename <- paste0(Sys.getenv("OS"), "-R-", Sys.getenv("R"), ".txt")
-      #     cat(result, "\n---\n", log_text, "\n", file = filename)
-      #   shell: Rscript {0}
-      #
-      # - name: 💾 Upload status artifact
-      #   if: github.event_name == 'schedule'
-      #   uses: actions/upload-artifact@v4
-      #   with:
-      #     name: ${{ matrix.config.os }}-R-${{ matrix.config.r }}
-      #     path: ${{ matrix.config.os }}-R-${{ matrix.config.r }}.txt
-      #     retention-days: 6
-
       - name: 🧪 Run R-CMD-check and save summary
         if: github.event_name == 'schedule'
         env:
@@ -95,8 +68,7 @@ jobs:
             utils::capture.output(print(check)),
             collapse = "\n"
           )
-          dir.create("status", showWarnings = FALSE)
-          filename <- file.path("status", paste0(Sys.getenv("OS"), "-R-", Sys.getenv("R"), ".txt"))
+          filename <- paste0(Sys.getenv("OS"), "-R-", Sys.getenv("R"), ".txt")
           cat(result, "\n---\n", log_text, "\n", file = filename)
         shell: Rscript {0}
 
@@ -104,6 +76,6 @@ jobs:
         if: github.event_name == 'schedule'
         uses: actions/upload-artifact@v4
         with:
-          name: status
-          path: status
+          name: ${{ matrix.config.os }}-R-${{ matrix.config.r }}
+          path: ${{ matrix.config.os }}-R-${{ matrix.config.r }}.txt
           retention-days: 6

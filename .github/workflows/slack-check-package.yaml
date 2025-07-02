@@ -1,11 +1,14 @@
 on:
-  schedule:
-    - cron: '0 2 * * 1' # One hour after weekly R-CMD-check
+  workflow_run:
+    workflows: ["R-CMD-check"]
+    types:
+      - completed
 
 name: slack-check-package
 
 jobs:
   message-slack:
+    if: ${{ github.event.workflow_run.event == 'schedule' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -33,6 +36,7 @@ jobs:
           remotes::install_github("poissonconsulting/poisslack")
 
           files <- list.files("status", full.names = TRUE, recursive = TRUE)
+          print(files)
 
           msg <- paste(basename(Sys.getenv("REPO")), "R CMD check results:\n\n")
           for (i in files) {

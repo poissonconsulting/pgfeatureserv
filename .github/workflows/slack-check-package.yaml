@@ -18,6 +18,7 @@ jobs:
       - name: 📥 Download status artifacts (if any)
         uses: actions/download-artifact@v4
         with:
+          name: status
           path: status
 
       - name: 🧰 Set up R
@@ -35,7 +36,7 @@ jobs:
           install.packages("remotes")
           remotes::install_github("poissonconsulting/poisslack")
 
-          files <- list.files("status", full.names = TRUE, recursive = TRUE)
+          files <- list.files("status", full.names = TRUE)
           print(files)
 
           msg <- paste(basename(Sys.getenv("REPO")), "R CMD check results:\n\n")

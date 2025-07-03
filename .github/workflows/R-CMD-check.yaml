@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: main
   schedule:
-    - cron: '0 1 * * 1' # Every Sunday at 5:00 PM PST = Monday at 01:00 UTC
+    - cron: '0 8 * * 0' # Every Sunday at midnight PST = Monday at 08:00 UTC
 
 name: R-CMD-check
 

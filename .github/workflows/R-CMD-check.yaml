@@ -6,7 +6,8 @@ on:
   pull_request:
     branches: main
   schedule:
-    - cron: '0 8 * * 0' # Every Sunday at midnight PST = Monday at 08:00 UTC
+    # - cron: '0 8 * * 0' # Every Sunday at midnight PST = Monday at 08:00 UTC
+    - cron: '25 17 * * 5'
 
 name: R-CMD-check
 
@@ -77,4 +78,12 @@ jobs:
         with:
           name: ${{ matrix.config.os }}-R-${{ matrix.config.r }}
           path: ${{ matrix.config.os }}-R-${{ matrix.config.r }}.txt
+          retention-days: 6
+
+      - name: 💾 Upload snapshot artifacts
+        if: github.event_name == 'schedule'
+        uses: actions/upload-artifact@v4
+        with:
+          name: snapshots-${{ matrix.config.os }}-R-${{ matrix.config.r }}
+          path: tests/testthat/_snaps
           retention-days: 6

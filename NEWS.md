@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# pgfeatureserv 0.0.0.9007 (2026-06-24)
+
+- Same as previous version.
+
+
 # pgfeatureserv 0.0.0.9006 (2026-06-18)
 
 * Add fledge-bump workflow

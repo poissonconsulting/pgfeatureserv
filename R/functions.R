@@ -14,12 +14,14 @@
 #'   base_url = base_url, path = path
 #' )
 #' }
-pgf_functions <- function(base_url,
-                          path,
-                          nocache = NULL,
-                          user = gh_user(),
-                          verbose = FALSE,
-                          response = FALSE) {
+pgf_functions <- function(
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   chk_string(base_url)
   chk_string(path)
   chk_null_or(nocache, vld = vld_charflag)
@@ -34,7 +36,9 @@ pgf_functions <- function(base_url,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {

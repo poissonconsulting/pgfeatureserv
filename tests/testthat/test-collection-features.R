@@ -4,7 +4,8 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       limit = 1,
@@ -21,7 +22,8 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -42,7 +44,8 @@ httptest::with_mock_dir("cfs", {
 
     filter <- list(gnis_name_1 = "Trout Lake")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -52,19 +55,36 @@ httptest::with_mock_dir("cfs", {
     expect_true(all(x$gnis_name_1 == "Trout Lake"))
 
     colnames <- c(
-      "area_ha", "blue_line_key", "feature_code", "fwa_watershed_code",
-      "gnis_id_1", "gnis_id_2",
-      "gnis_id_3", "gnis_name_1", "gnis_name_2",
-      "gnis_name_3", "left_right_tributary", "local_watershed_code",
-      "localcode_ltree", "waterbody_key", "waterbody_key_50k",
+      "area_ha",
+      "blue_line_key",
+      "feature_code",
+      "fwa_watershed_code",
+      "gnis_id_1",
+      "gnis_id_2",
+      "gnis_id_3",
+      "gnis_name_1",
+      "gnis_name_2",
+      "gnis_name_3",
+      "left_right_tributary",
+      "local_watershed_code",
+      "localcode_ltree",
+      "waterbody_key",
+      "waterbody_key_50k",
       "waterbody_key_group_code_50k",
-      "waterbody_poly_id", "waterbody_type", "watershed_code_50k",
-      "watershed_group_code", "watershed_group_code_50k",
-      "watershed_group_id", "watershed_key", "wscode_ltree", "geometry"
+      "waterbody_poly_id",
+      "waterbody_type",
+      "watershed_code_50k",
+      "watershed_group_code",
+      "watershed_group_code_50k",
+      "watershed_group_id",
+      "watershed_key",
+      "wscode_ltree",
+      "geometry"
     )
 
     expect_identical(
-      colnames(x), colnames
+      colnames(x),
+      colnames
     )
     expect_snapshot_data(x[setdiff(colnames, "geometry")], "trout_lake")
   })
@@ -77,7 +97,8 @@ httptest::with_mock_dir("cfs", {
 
     sortby <- c("blue_line_key")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -85,7 +106,8 @@ httptest::with_mock_dir("cfs", {
       sortby = sortby
     )
 
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -102,14 +124,16 @@ httptest::with_mock_dir("cfs", {
     sortby <- c("+blue_line_key")
     sortby_desc <- c("-blue_line_key")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
       limit = 1,
       sortby = sortby_desc
     )
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -127,7 +151,8 @@ httptest::with_mock_dir("cfs", {
 
     bbox <- c(-117.46, 50.6, -117.4601, 50.6001)
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -137,13 +162,31 @@ httptest::with_mock_dir("cfs", {
     expect_identical(
       sort(colnames(x)),
       c(
-        "area_ha", "blue_line_key", "feature_code", "fwa_watershed_code",
-        "geometry", "gnis_id_1", "gnis_id_2", "gnis_id_3", "gnis_name_1", "gnis_name_2",
-        "gnis_name_3", "left_right_tributary", "local_watershed_code",
-        "localcode_ltree", "waterbody_key", "waterbody_key_50k", "waterbody_key_group_code_50k",
-        "waterbody_poly_id", "waterbody_type", "watershed_code_50k",
-        "watershed_group_code", "watershed_group_code_50k", "watershed_group_id",
-        "watershed_key", "wscode_ltree"
+        "area_ha",
+        "blue_line_key",
+        "feature_code",
+        "fwa_watershed_code",
+        "geometry",
+        "gnis_id_1",
+        "gnis_id_2",
+        "gnis_id_3",
+        "gnis_name_1",
+        "gnis_name_2",
+        "gnis_name_3",
+        "left_right_tributary",
+        "local_watershed_code",
+        "localcode_ltree",
+        "waterbody_key",
+        "waterbody_key_50k",
+        "waterbody_key_group_code_50k",
+        "waterbody_poly_id",
+        "waterbody_type",
+        "watershed_code_50k",
+        "watershed_group_code",
+        "watershed_group_code_50k",
+        "watershed_group_id",
+        "watershed_key",
+        "wscode_ltree"
       )
     )
   })
@@ -156,7 +199,8 @@ httptest::with_mock_dir("cfs", {
 
     properties <- c("blue_line_key", "gnis_name")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -174,7 +218,8 @@ httptest::with_mock_dir("cfs", {
 
     precision <- 1
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -196,7 +241,8 @@ httptest::with_mock_dir("cfs", {
 
     filter <- list(gnis_name_1 = "Kootenay Lake")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -206,7 +252,10 @@ httptest::with_mock_dir("cfs", {
 
     expect_s3_class(x, "sf")
     expect_identical(nrow(x), 1L)
-    expect_identical(nrow(sf::st_coordinates(sf::st_cast(x$geometry, "POINT"))), 4L)
+    expect_identical(
+      nrow(sf::st_coordinates(sf::st_cast(x$geometry, "POINT"))),
+      4L
+    )
   })
 
   test_that("collection transform to get bbox works", {
@@ -217,7 +266,8 @@ httptest::with_mock_dir("cfs", {
     transform <- "collect|envelope"
     properties <- "geometry"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -227,7 +277,10 @@ httptest::with_mock_dir("cfs", {
 
     expect_s3_class(x, "sf")
     expect_identical(nrow(x), 1L)
-    expect_identical(nrow(sf::st_coordinates(sf::st_cast(x$geometry, "POINT"))), 5L)
+    expect_identical(
+      nrow(sf::st_coordinates(sf::st_cast(x$geometry, "POINT"))),
+      5L
+    )
   })
 
   # groupby
@@ -238,7 +291,8 @@ httptest::with_mock_dir("cfs", {
 
     groupby <- "gnis_name"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -263,7 +317,8 @@ httptest::with_mock_dir("cfs", {
     bbox <- c(-117.46, 50.6, -117.4601, 50.6001)
     filter <- list(gnis_name_1 = "kootenay lake")
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -273,7 +328,9 @@ httptest::with_mock_dir("cfs", {
     expect_s3_class(x, "sf")
     expect_identical(nrow(x), 0L)
     # not sure why this is happening - is it an issue?
-    skip("pgf_collection_features all columns missing except geometry when no rows")
+    skip(
+      "pgf_collection_features all columns missing except geometry when no rows"
+    )
     expect_identical(
       colnames(x),
       c("geometry")
@@ -285,7 +342,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     expect_chk_error(
-      pgf_collection_features("not_a_collection",
+      pgf_collection_features(
+        "not_a_collection",
         base_url = base_url,
         path = path,
         nocache = "true"
@@ -300,7 +358,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     expect_chk_error(
-      pgf_collection_features(collection_id,
+      pgf_collection_features(
+        collection_id,
         base_url = base_url,
         path = path,
         nocache = "true",
@@ -316,7 +375,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     expect_chk_error(
-      pgf_collection_features(collection_id,
+      pgf_collection_features(
+        collection_id,
         base_url = base_url,
         path = path,
         nocache = "true",
@@ -331,7 +391,8 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    expect_chk_error(pgf_collection_features(collection_id,
+    expect_chk_error(pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -344,14 +405,16 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
       limit = 2
     )
     expect_identical(x$named_streams_id, c(23361, 23362))
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -370,7 +433,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     sortby <- "named_streams_id"
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -378,7 +442,8 @@ httptest::with_mock_dir("cfs", {
       limit = 2,
       sortby = sortby
     )
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -397,7 +462,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     sortby <- "named_streams_id"
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -405,7 +471,8 @@ httptest::with_mock_dir("cfs", {
       limit = 2,
       sortby = sortby
     )
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
@@ -428,7 +495,8 @@ httptest::with_mock_dir("cfs", {
     path <- "fwa"
 
     sortby <- "named_streams_id"
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       offset = 10000,
       base_url = base_url,
       path = path,
@@ -436,7 +504,8 @@ httptest::with_mock_dir("cfs", {
       limit = 2,
       sortby = sortby
     )
-    x2 <- pgf_collection_features(collection_id,
+    x2 <- pgf_collection_features(
+      collection_id,
       offset = 10001,
       base_url = base_url,
       path = path,
@@ -458,11 +527,13 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
-      offset = 99999, limit = 1
+      offset = 99999,
+      limit = 1
     )
     expect_s3_class(x, "sf")
   })
@@ -472,11 +543,13 @@ httptest::with_mock_dir("cfs", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_features(collection_id,
+    x <- pgf_collection_features(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true",
-      offset = 100000, limit = 1
+      offset = 100000,
+      limit = 1
     )
     expect_s3_class(x, "sf")
   })

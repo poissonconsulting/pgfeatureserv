@@ -4,7 +4,8 @@ httptest::with_mock_dir("f", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_function_properties(function_id,
+    x <- pgf_function_properties(
+      function_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -20,7 +21,8 @@ httptest::with_mock_dir("f", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_function_parameters(function_id,
+    x <- pgf_function_parameters(
+      function_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -36,7 +38,8 @@ httptest::with_mock_dir("f", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_function_description(function_id,
+    x <- pgf_function_description(
+      function_id,
       base_url = base_url,
       path = path,
       nocache = "true"

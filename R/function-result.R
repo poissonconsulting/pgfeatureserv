@@ -23,21 +23,23 @@
 #' )
 #' }
 #'
-pgf_function_result <- function(function_id,
-                                base_url,
-                                path,
-                                parameters,
-                                limit = 10000,
-                                offset = 0,
-                                sortby = NULL,
-                                bbox = NULL,
-                                properties = NULL,
-                                precision = NULL,
-                                transform = NULL,
-                                nocache = NULL,
-                                user = gh_user(),
-                                verbose = FALSE,
-                                response = FALSE) {
+pgf_function_result <- function(
+  function_id,
+  base_url,
+  path,
+  parameters,
+  limit = 10000,
+  offset = 0,
+  sortby = NULL,
+  bbox = NULL,
+  properties = NULL,
+  precision = NULL,
+  transform = NULL,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   chk_string(function_id)
   chkor_vld(
     vld_null(parameters),
@@ -83,7 +85,9 @@ pgf_function_result <- function(function_id,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {

@@ -4,7 +4,8 @@ httptest::with_mock_dir("c", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_properties(collection_id,
+    x <- pgf_collection_properties(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -19,7 +20,8 @@ httptest::with_mock_dir("c", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_description(collection_id,
+    x <- pgf_collection_description(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -33,7 +35,8 @@ httptest::with_mock_dir("c", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_crs(collection_id,
+    x <- pgf_collection_crs(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -47,7 +50,8 @@ httptest::with_mock_dir("c", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_bbox(collection_id,
+    x <- pgf_collection_bbox(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true"
@@ -61,7 +65,8 @@ httptest::with_mock_dir("c", {
     base_url <- "https://features.hillcrestgeo.ca/"
     path <- "fwa"
 
-    x <- pgf_collection_geometry_type(collection_id,
+    x <- pgf_collection_geometry_type(
+      collection_id,
       base_url = base_url,
       path = path,
       nocache = "true"

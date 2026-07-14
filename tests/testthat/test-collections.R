@@ -8,9 +8,16 @@ httptest::with_mock_dir("cs", {
       nocache = "true"
     )
     expect_s3_class(x, "tbl_df")
-    expect_identical(names(x), c(
-      "id", "title", "description", "extent", "links"
-    ))
+    expect_identical(
+      names(x),
+      c(
+        "id",
+        "title",
+        "description",
+        "extent",
+        "links"
+      )
+    )
   })
 
   test_that("collections collection_id values haven't changed", {

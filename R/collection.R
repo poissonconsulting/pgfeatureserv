@@ -1,12 +1,14 @@
-pgf_collection <- function(collection_id,
-                           base_url,
-                           path,
-                           table,
-                           nocache = NULL,
-                           tibble = TRUE,
-                           user = gh_user(),
-                           verbose = FALSE,
-                           response = FALSE) {
+pgf_collection <- function(
+  collection_id,
+  base_url,
+  path,
+  table,
+  nocache = NULL,
+  tibble = TRUE,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   chk_string(collection_id)
   chk_string(base_url)
   chk_string(path)
@@ -22,7 +24,9 @@ pgf_collection <- function(collection_id,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {
@@ -50,13 +54,15 @@ pgf_collection <- function(collection_id,
 #'   collection_id = collection_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_collection_properties <- function(collection_id,
-                                      base_url,
-                                      path,
-                                      nocache = NULL,
-                                      user = gh_user(),
-                                      verbose = FALSE,
-                                      response = FALSE) {
+pgf_collection_properties <- function(
+  collection_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_collection(
     collection_id = collection_id,
     base_url = base_url,
@@ -86,13 +92,15 @@ pgf_collection_properties <- function(collection_id,
 #'   collection_id = collection_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_collection_description <- function(collection_id,
-                                       base_url,
-                                       path,
-                                       nocache = NULL,
-                                       user = gh_user(),
-                                       verbose = FALSE,
-                                       response = FALSE) {
+pgf_collection_description <- function(
+  collection_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_collection(
     collection_id = collection_id,
     base_url = base_url,
@@ -123,13 +131,15 @@ pgf_collection_description <- function(collection_id,
 #'   collection_id = collection_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_collection_crs <- function(collection_id,
-                               base_url,
-                               path,
-                               nocache = NULL,
-                               user = gh_user(),
-                               verbose = FALSE,
-                               response = FALSE) {
+pgf_collection_crs <- function(
+  collection_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   x <- pgf_collection(
     collection_id = collection_id,
     base_url = base_url,
@@ -161,13 +171,15 @@ pgf_collection_crs <- function(collection_id,
 #'   collection_id = collection_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_collection_bbox <- function(collection_id,
-                                base_url,
-                                path,
-                                nocache = NULL,
-                                user = gh_user(),
-                                verbose = FALSE,
-                                response = FALSE) {
+pgf_collection_bbox <- function(
+  collection_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   x <- pgf_collection(
     collection_id = collection_id,
     base_url = base_url,
@@ -199,13 +211,15 @@ pgf_collection_bbox <- function(collection_id,
 #'   collection_id = collection_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_collection_geometry_type <- function(collection_id,
-                                         base_url,
-                                         path,
-                                         nocache = NULL,
-                                         user = gh_user(),
-                                         verbose = FALSE,
-                                         response = FALSE) {
+pgf_collection_geometry_type <- function(
+  collection_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_collection(
     collection_id = collection_id,
     base_url = base_url,

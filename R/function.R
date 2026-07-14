@@ -1,12 +1,14 @@
-pgf_function <- function(function_id,
-                         base_url,
-                         path,
-                         table,
-                         nocache = NULL,
-                         tibble = TRUE,
-                         user = gh_user(),
-                         verbose = FALSE,
-                         response = FALSE) {
+pgf_function <- function(
+  function_id,
+  base_url,
+  path,
+  table,
+  nocache = NULL,
+  tibble = TRUE,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   chk_string(function_id)
   chk_string(base_url)
   chk_string(path)
@@ -22,7 +24,9 @@ pgf_function <- function(function_id,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {
@@ -50,13 +54,15 @@ pgf_function <- function(function_id,
 #'   function_id = function_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_function_parameters <- function(function_id,
-                                    base_url,
-                                    path,
-                                    nocache = NULL,
-                                    user = gh_user(),
-                                    verbose = FALSE,
-                                    response = FALSE) {
+pgf_function_parameters <- function(
+  function_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_function(
     function_id = function_id,
     base_url = base_url,
@@ -86,13 +92,15 @@ pgf_function_parameters <- function(function_id,
 #'   function_id = function_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_function_properties <- function(function_id,
-                                    base_url,
-                                    path,
-                                    nocache = NULL,
-                                    user = gh_user(),
-                                    verbose = FALSE,
-                                    response = FALSE) {
+pgf_function_properties <- function(
+  function_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_function(
     function_id = function_id,
     base_url = base_url,
@@ -122,13 +130,15 @@ pgf_function_properties <- function(function_id,
 #'   function_id = function_id, base_url = base_url, path = path
 #' )
 #' }
-pgf_function_description <- function(function_id,
-                                     base_url,
-                                     path,
-                                     nocache = NULL,
-                                     user = gh_user(),
-                                     verbose = FALSE,
-                                     response = FALSE) {
+pgf_function_description <- function(
+  function_id,
+  base_url,
+  path,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   pgf_function(
     function_id = function_id,
     base_url = base_url,

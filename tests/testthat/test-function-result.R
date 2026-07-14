@@ -9,7 +9,8 @@ httptest::with_mock_dir("fr", {
       downstream_route_measure = 0
     )
 
-    x <- pgf_function_result(function_id,
+    x <- pgf_function_result(
+      function_id,
       base_url = base_url,
       path = path,
       parameters = parameters,
@@ -32,7 +33,8 @@ httptest::with_mock_dir("fr", {
       downstream_route_measure = 100
     )
 
-    x <- pgf_function_result(function_id,
+    x <- pgf_function_result(
+      function_id,
       base_url = base_url,
       path = path,
       parameters = parameters,
@@ -53,7 +55,8 @@ httptest::with_mock_dir("fr", {
     )
 
     expect_chk_error(
-      pgf_function_result("not_a_function",
+      pgf_function_result(
+        "not_a_function",
         base_url = base_url,
         path = path,
         parameters = parameters,
@@ -73,7 +76,8 @@ httptest::with_mock_dir("fr", {
     )
 
     expect_chk_error(
-      pgf_function_result("fwa_locatealong",
+      pgf_function_result(
+        "fwa_locatealong",
         base_url = base_url,
         path = path,
         parameters = parameters,
@@ -94,7 +98,8 @@ httptest::with_mock_dir("fr", {
     )
 
     expect_chk_error(
-      pgf_function_result("fwa_locatealong",
+      pgf_function_result(
+        "fwa_locatealong",
         base_url = base_url,
         path = path,
         parameters = parameters,

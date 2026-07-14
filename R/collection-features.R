@@ -11,22 +11,24 @@
 #' \dontrun{
 #' pgf_collection_features("whse_basemapping.fwa_wetlands_poly", limit = 1)
 #' }
-pgf_collection_features <- function(collection_id,
-                                    base_url,
-                                    path,
-                                    filter = NULL,
-                                    limit = 10000,
-                                    offset = 0,
-                                    sortby = NULL,
-                                    bbox = NULL,
-                                    properties = NULL,
-                                    precision = NULL,
-                                    transform = NULL,
-                                    groupby = NULL,
-                                    nocache = NULL,
-                                    user = gh_user(),
-                                    verbose = FALSE,
-                                    response = FALSE) {
+pgf_collection_features <- function(
+  collection_id,
+  base_url,
+  path,
+  filter = NULL,
+  limit = 10000,
+  offset = 0,
+  sortby = NULL,
+  bbox = NULL,
+  properties = NULL,
+  precision = NULL,
+  transform = NULL,
+  groupby = NULL,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   chk_string(collection_id)
   chkor_vld(
     vld_null(filter),
@@ -75,7 +77,9 @@ pgf_collection_features <- function(collection_id,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {

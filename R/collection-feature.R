@@ -11,16 +11,18 @@
 #' \dontrun{
 #' pgf_collection_feature("whse_basemapping.fwa_wetlands_poly", limit = 1)
 #' }
-pgf_collection_feature <- function(collection_id,
-                                   feature_id,
-                                   base_url,
-                                   path,
-                                   properties = NULL,
-                                   transform = NULL,
-                                   nocache = NULL,
-                                   user = gh_user(),
-                                   verbose = FALSE,
-                                   response = FALSE) {
+pgf_collection_feature <- function(
+  collection_id,
+  feature_id,
+  base_url,
+  path,
+  properties = NULL,
+  transform = NULL,
+  nocache = NULL,
+  user = gh_user(),
+  verbose = FALSE,
+  response = FALSE
+) {
   lifecycle::deprecate_stop("0.0.0.9005", "pgf_collection_feature()")
 
   chk_string(collection_id)
@@ -45,7 +47,9 @@ pgf_collection_feature <- function(collection_id,
   url <- modify_url(url = base_url, path = path, query = query)
 
   resp <- get_request(
-    url = url, user = user, verbose = verbose
+    url = url,
+    user = user,
+    verbose = verbose
   )
 
   if (response) {

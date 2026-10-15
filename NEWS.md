@@ -1,4 +1,9 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+<!-- NEWS.md is maintained by https://fledge.cynkra.com, contributors should not edit this file -->
+
+# pgfeatureserv 0.0.0.9010 (2026-10-15)
+
+- Same as previous version.
+
 
 # pgfeatureserv 0.0.0.9009 (2026-07-15)
 
@@ -41,4 +46,3 @@
 # pgfeatureserv 0.0.0.9001 (2022-01-17)
 
 - Initial development release.
-
